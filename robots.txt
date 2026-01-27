@@ -1,0 +1,12 @@
+# Robots.txt pour JNL Service
+# https://jnl-service.fr
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jnl-service.fr/sitemap.xml
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /private/

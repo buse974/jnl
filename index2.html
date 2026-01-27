@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JNL Service - Expert en entretien de jardin et location de bennes à Pertuis et Aix-en-Provence. Plus de 8 ans d'expérience. Devis gratuit au 06.10.87.88.92">
+    <meta name="keywords" content="entretien jardin, location benne, Pertuis, Aix-en-Provence, évacuation déchets, paysagiste, tonte pelouse, élagage">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jnl-service.fr/">
+    <meta property="og:title" content="JNL Service | Jardin & Bennes - Pertuis">
+    <meta property="og:description" content="Deux expertises, un seul interlocuteur. Entretien de jardin et location de bennes.">
+
+    <link rel="canonical" href="https://jnl-service.fr/">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>JNL Service | Jardin & Bennes - Pertuis, Aix-en-Provence</title>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "JNL Service",
+        "description": "Expert en entretien de jardin et location de bennes",
+        "url": "https://jnl-service.fr",
+        "telephone": "+33610878892",
+        "email": "jnlservices84120@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Bd Jean Guigues",
+            "addressLocality": "Pertuis",
+            "postalCode": "84120",
+            "addressCountry": "FR"
+        },
+        "areaServed": ["Pertuis", "Aix-en-Provence", "Luberon", "Vaucluse"]
+    }
+    </script>
+
+    <style>
+        /* ============================================
+           CSS VARIABLES & RESET
+           ============================================ */
+        :root {
+            --green: #22c55e;
+            --green-dark: #16a34a;
+            --green-darker: #064e3b;
+            --orange: #f97316;
+            --orange-dark: #ea580c;
+            --orange-darker: #7c2d12;
+            --dark: #0a0a0a;
+            --dark-light: #171717;
+            --gray: #a3a3a3;
+            --white: #fafafa;
+            --font: 'Outfit', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul { list-style: none; }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ============================================
+           CURSOR GLOW EFFECT
+           ============================================ */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.15;
+            filter: blur(80px);
+            transition: opacity 0.3s;
+            mix-blend-mode: screen;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header.scrolled {
+            padding: 1rem 0;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-jnl {
+            background: linear-gradient(135deg, var(--green), var(--orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--gray);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green), var(--orange));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-cta {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 100px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.4);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        /* ============================================
+           HERO - SPLIT SCREEN
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .hero-top {
+            padding: 10rem 0 4rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .text-gradient-green {
+            background: linear-gradient(135deg, var(--green), #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-orange {
+            background: linear-gradient(135deg, var(--orange), #fb923c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Split Cards */
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            flex: 1;
+            padding-bottom: 4rem;
+        }
+
+        .split-card {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .split-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            transition: opacity 0.5s;
+        }
+
+        .split-card:hover {
+            transform: scale(1.02);
+        }
+
+        .split-card:hover::before {
+            opacity: 0.8;
+        }
+
+        /* Jardin Card */
+        .card-jardin {
+            background: linear-gradient(180deg, rgba(6, 78, 59, 0.3) 0%, rgba(6, 78, 59, 0.9) 100%),
+                        linear-gradient(135deg, #0f1a0f 0%, #1a2f1a 100%);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .card-jardin::before {
+            background: radial-gradient(ellipse at bottom, rgba(34, 197, 94, 0.3) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .card-jardin:hover {
+            border-color: rgba(34, 197, 94, 0.5);
+            box-shadow: 0 0 60px rgba(34, 197, 94, 0.2);
+        }
+
+        /* Bennes Card */
+        .card-bennes {
+            background: linear-gradient(180deg, rgba(124, 45, 18, 0.3) 0%, rgba(124, 45, 18, 0.9) 100%),
+                        linear-gradient(135deg, #1a0f0f 0%, #2f1a1a 100%);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        .card-bennes::before {
+            background: radial-gradient(ellipse at bottom, rgba(249, 115, 22, 0.3) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .card-bennes:hover {
+            border-color: rgba(249, 115, 22, 0.5);
+            box-shadow: 0 0 60px rgba(249, 115, 22, 0.2);
+        }
+
+        .split-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .split-card-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .card-jardin .split-card-icon {
+            color: var(--green);
+        }
+
+        .card-bennes .split-card-icon {
+            color: var(--orange);
+        }
+
+        .split-card-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .split-card-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            max-width: 320px;
+        }
+
+        .split-card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-jardin .feature-tag {
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .card-bennes .feature-tag {
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .split-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .card-jardin .split-card-btn {
+            background: var(--green);
+            color: var(--dark);
+        }
+
+        .card-jardin .split-card-btn:hover {
+            background: #4ade80;
+            transform: translateX(8px);
+        }
+
+        .card-bennes .split-card-btn {
+            background: var(--orange);
+            color: var(--dark);
+        }
+
+        .card-bennes .split-card-btn:hover {
+            background: #fb923c;
+            transform: translateX(8px);
+        }
+
+        .split-card-btn svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+
+        .split-card-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Floating elements */
+        .floating-leaf {
+            position: absolute;
+            top: 20%;
+            right: 15%;
+            width: 60px;
+            height: 60px;
+            color: var(--green);
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-box {
+            position: absolute;
+            top: 25%;
+            right: 10%;
+            width: 50px;
+            height: 50px;
+            color: var(--orange);
+            opacity: 0.3;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* ============================================
+           STATS BANNER
+           ============================================ */
+        .stats-banner {
+            padding: 4rem 0;
+            background: var(--dark-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--green), var(--orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Tabs */
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            font-family: var(--font);
+            font-size: 1rem;
+            font-weight: 600;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+        }
+
+        .tab-btn.active {
+            border-color: transparent;
+            color: var(--dark);
+        }
+
+        .tab-btn.active.tab-jardin {
+            background: var(--green);
+        }
+
+        .tab-btn.active.tab-bennes {
+            background: var(--orange);
+        }
+
+        /* Services Grid */
+        .services-content {
+            display: none;
+        }
+
+        .services-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--dark-light);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .services-jardin .service-card::before {
+            background: linear-gradient(90deg, var(--green), #4ade80);
+        }
+
+        .services-bennes .service-card::before {
+            background: linear-gradient(90deg, var(--orange), #fb923c);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-jardin .service-icon {
+            color: var(--green);
+        }
+
+        .services-bennes .service-icon {
+            color: var(--orange);
+        }
+
+        .service-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-desc {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: gap 0.3s;
+        }
+
+        .services-jardin .service-link {
+            color: var(--green);
+        }
+
+        .services-bennes .service-link {
+            color: var(--orange);
+        }
+
+        .service-link:hover {
+            gap: 0.75rem;
+        }
+
+        .service-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ============================================
+           BENNES SHOWCASE
+           ============================================ */
+        .bennes-showcase {
+            padding: 8rem 0;
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 50%, var(--dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bennes-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1000px;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .bennes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .bennes-content {
+            max-width: 500px;
+        }
+
+        .bennes-content .section-label {
+            color: var(--orange);
+        }
+
+        .bennes-list {
+            margin-top: 2rem;
+        }
+
+        .benne-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .benne-item:hover {
+            background: rgba(249, 115, 22, 0.05);
+            border-color: rgba(249, 115, 22, 0.2);
+        }
+
+        .benne-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--orange);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benne-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .benne-info h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .benne-info p {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .bennes-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .benne-3d {
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1;
+            position: relative;
+        }
+
+        .benne-illustration {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(249, 115, 22, 0.05) 100%);
+            border-radius: 2rem;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benne-illustration::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .benne-illustration svg {
+            width: 60%;
+            height: 60%;
+            color: var(--orange);
+            opacity: 0.8;
+        }
+
+        .benne-sizes {
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .size-badge {
+            padding: 0.75rem 1.25rem;
+            background: var(--dark);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--orange);
+            white-space: nowrap;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-image {
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--green-darker) 0%, var(--dark-light) 100%);
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.2) 0%, transparent 70%);
+        }
+
+        .about-image-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-content svg {
+            width: 40%;
+            color: var(--green);
+            opacity: 0.5;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 2rem;
+            right: -2rem;
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .about-badge-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--green), var(--orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .about-badge-text {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        .about-content {
+            max-width: 500px;
+        }
+
+        .about-text {
+            font-size: 1.0625rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-text strong {
+            color: var(--white);
+        }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+        }
+
+        .value-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(249, 115, 22, 0.2));
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .value-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .value-text {
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           ZONE D'INTERVENTION
+           ============================================ */
+        .zone {
+            padding: 8rem 0;
+            background: var(--dark-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zone::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .zone-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .zone-map {
+            position: relative;
+            aspect-ratio: 1;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .map-circles {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            animation: radar 3s ease-out infinite;
+        }
+
+        .map-circle:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            animation-delay: 0s;
+        }
+
+        .map-circle:nth-child(2) {
+            width: 70%;
+            height: 70%;
+            animation-delay: 0.5s;
+        }
+
+        .map-circle:nth-child(3) {
+            width: 40%;
+            height: 40%;
+            animation-delay: 1s;
+        }
+
+        @keyframes radar {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.2); }
+        }
+
+        .map-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.4);
+        }
+
+        .map-center svg {
+            width: 32px;
+            height: 32px;
+            color: var(--white);
+        }
+
+        .map-labels {
+            position: absolute;
+            inset: 0;
+        }
+
+        .map-label {
+            position: absolute;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        .map-label.label-pertuis {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 60px);
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .map-label.label-aix {
+            top: 25%;
+            right: 10%;
+        }
+
+        .map-label.label-luberon {
+            bottom: 25%;
+            left: 10%;
+        }
+
+        .map-label.label-vaucluse {
+            top: 15%;
+            left: 20%;
+        }
+
+        .zone-content {
+            max-width: 450px;
+        }
+
+        .zone-list {
+            margin-top: 2rem;
+        }
+
+        .zone-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .zone-item:last-child {
+            border-bottom: none;
+        }
+
+        .zone-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--green);
+        }
+
+        .zone-item span {
+            font-size: 1.0625rem;
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--green-darker) 0%, var(--dark-light) 50%, var(--orange-darker) 100%);
+            border-radius: 2rem;
+            padding: 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(34, 197, 94, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(249, 115, 22, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2rem;
+            background: var(--white);
+            color: var(--dark);
+            font-size: 1.125rem;
+            font-weight: 700;
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .btn-phone:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-phone svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btn-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .btn-email:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-email svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact {
+            padding: 8rem 0;
+            background: var(--dark-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(8px);
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(249, 115, 22, 0.2));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--white);
+        }
+
+        .contact-label {
+            font-size: 0.8125rem;
+            color: var(--gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .contact-value a:hover {
+            color: var(--green);
+        }
+
+        .contact-social {
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: #1877f2;
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #0d65d9;
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: var(--dark-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            color: var(--white);
+            font-family: var(--font);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--gray);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a3' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 3rem;
+        }
+
+        .form-group select option {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: var(--white);
+            font-family: var(--font);
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-submit svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-desc {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            display: block;
+            font-size: 0.9375rem;
+            color: var(--gray);
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-split {
+                grid-template-columns: 1fr;
+            }
+
+            .split-card {
+                min-height: 400px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bennes-grid,
+            .about-grid,
+            .zone-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .bennes-content,
+            .about-content,
+            .zone-content {
+                max-width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                padding: 2rem;
+                transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-item:nth-child(2)::after {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .about-badge {
+                right: 1rem;
+                bottom: 1rem;
+            }
+
+            .cta-box {
+                padding: 3rem 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-desc {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .split-card {
+                padding: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-jnl">JNL</span>Service
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#bennes" class="nav-link">Bennes</a>
+                <a href="#about" class="nav-link">À propos</a>
+                <a href="#zone" class="nav-link">Zone</a>
+                <a href="#contact" class="btn-cta">Contact</a>
+            </nav>
+
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-top">
+                <span class="hero-badge">Pertuis & Aix-en-Provence</span>
+                <h1 class="hero-title">
+                    <span class="text-gradient-green">Jardin</span>
+                    <span>&</span>
+                    <span class="text-gradient-orange">Bennes</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Deux expertises, un seul interlocuteur. Entretien de vos espaces verts
+                    et évacuation de vos déchets depuis plus de 8 ans.
+                </p>
+            </div>
+
+            <div class="hero-split">
+                <!-- Jardin Card -->
+                <a href="#services" class="split-card card-jardin">
+                    <svg class="floating-leaf" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+                    </svg>
+                    <div class="split-card-content">
+                        <div class="split-card-icon">
+                            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40 10C40 10 20 26 20 42C20 53.0457 28.9543 62 40 62C51.0457 62 60 53.0457 60 42C60 26 40 10 40 10Z" stroke="currentColor" stroke-width="3" fill="none"/>
+                                <path d="M40 22V52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M28 38H52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="split-card-title">Espace Vert</h2>
+                        <p class="split-card-desc">
+                            Entretien, création et aménagement de vos jardins par des professionnels passionnés.
+                        </p>
+                        <div class="split-card-features">
+                            <span class="feature-tag">Tonte & Taille</span>
+                            <span class="feature-tag">Élagage</span>
+                            <span class="feature-tag">Plantation</span>
+                            <span class="feature-tag">Arrosage</span>
+                        </div>
+                        <span class="split-card-btn">
+                            Découvrir
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Bennes Card -->
+                <a href="#bennes" class="split-card card-bennes">
+                    <svg class="floating-box" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                    </svg>
+                    <div class="split-card-content">
+                        <div class="split-card-icon">
+                            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="12" y="28" width="56" height="36" rx="4" stroke="currentColor" stroke-width="3" fill="none"/>
+                                <path d="M12 40H68" stroke="currentColor" stroke-width="3"/>
+                                <path d="M24 28V18C24 16.8954 24.8954 16 26 16H54C55.1046 16 56 16.8954 56 18V28" stroke="currentColor" stroke-width="3"/>
+                                <circle cx="24" cy="64" r="6" stroke="currentColor" stroke-width="3" fill="none"/>
+                                <circle cx="56" cy="64" r="6" stroke="currentColor" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <h2 class="split-card-title">Location Bennes</h2>
+                        <p class="split-card-desc">
+                            Bennes de toutes tailles pour évacuer vos déchets verts, gravats et encombrants.
+                        </p>
+                        <div class="split-card-features">
+                            <span class="feature-tag">Déchets verts</span>
+                            <span class="feature-tag">Gravats</span>
+                            <span class="feature-tag">Encombrants</span>
+                            <span class="feature-tag">Livraison</span>
+                        </div>
+                        <span class="split-card-btn">
+                            Découvrir
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Années d'expérience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Clients satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Projets réalisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">48h</div>
+                    <div class="stat-label">Devis gratuit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nos expertises</span>
+                <h2 class="section-title">Des Services Sur Mesure</h2>
+                <p class="section-subtitle">
+                    Que ce soit pour votre jardin ou l'évacuation de vos déchets,
+                    nous avons la solution adaptée à vos besoins.
+                </p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="services-tabs">
+                <button class="tab-btn tab-jardin active" data-tab="jardin">
+                    Espace Vert
+                </button>
+                <button class="tab-btn tab-bennes" data-tab="bennes">
+                    Location Bennes
+                </button>
+            </div>
+
+            <!-- Jardin Services -->
+            <div class="services-content services-jardin active" id="tab-jardin">
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M28 8C28 8 14 20 14 32C14 39.732 20.268 46 28 46C35.732 46 42 39.732 42 32C42 20 28 8 28 8Z"/>
+                                <path d="M28 18V38" stroke-linecap="round"/>
+                                <path d="M20 28H36" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Entretien Régulier</h3>
+                        <p class="service-desc">
+                            Tonte de pelouse, désherbage et entretien saisonnier pour un jardin impeccable toute l'année.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Demander un devis
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M18 42L28 18L38 42"/>
+                                <path d="M22 34H34"/>
+                                <path d="M28 42V50"/>
+                                <circle cx="28" cy="12" r="5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Taille & Élagage</h3>
+                        <p class="service-desc">
+                            Taille de haies, arbustes et élagage d'arbres pour maintenir la santé de vos végétaux.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Demander un devis
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M28 48V28"/>
+                                <path d="M28 28C28 28 20 24 20 16C20 8 28 4 28 4C28 4 36 8 36 16C36 24 28 28 28 28Z"/>
+                                <path d="M28 36C28 36 16 34 12 28"/>
+                                <path d="M28 36C28 36 40 34 44 28"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Plantation & Création</h3>
+                        <p class="service-desc">
+                            Conception de massifs, plantation d'arbres et création de nouveaux espaces verts.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Demander un devis
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="10" y="36" width="36" height="14" rx="2"/>
+                                <path d="M14 36V28C14 26.8954 14.8954 26 16 26H24C25.1046 26 26 26.8954 26 28V36"/>
+                                <path d="M30 36V20C30 18.8954 30.8954 18 32 18H40C41.1046 18 42 18.8954 42 20V36"/>
+                                <circle cx="36" cy="12" r="5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Aménagement</h3>
+                        <p class="service-desc">
+                            Création de terrasses, murets, allées et aménagements en pierre pour structurer votre jardin.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Demander un devis
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M28 6C28 6 16 18 16 28C16 34.6274 21.3726 40 28 40C34.6274 40 40 34.6274 40 28C40 18 28 6 28 6Z"/>
+                                <path d="M24 46H32"/>
+                                <path d="M20 52H36"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Arrosage & Irrigation</h3>
+                        <p class="service-desc">
+                            Installation et maintenance de systèmes d'arrosage automatique pour un jardin bien hydraté.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Demander un devis
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M8 20H48L44 48H12L8 20Z"/>
+                                <path d="M20 20V14C20 11.7909 21.7909 10 24 10H32C34.2091 10 36 11.7909 36 14V20"/>
+                                <path d="M28 28V40"/>
+                                <path d="M20 28V40"/>
+                                <path d="M36 28V40"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Nettoyage Saisonnier</h3>
+                        <p class="service-desc">
+                            Grand nettoyage de printemps et d'automne pour préparer votre jardin aux saisons.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Demander un devis
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Bennes Services -->
+            <div class="services-content services-bennes" id="tab-bennes">
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="8" y="20" width="40" height="28" rx="3"/>
+                                <path d="M8 32H48"/>
+                                <path d="M18 20V12C18 10.8954 18.8954 10 20 10H36C37.1046 10 38 10.8954 38 12V20"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Benne 3m³</h3>
+                        <p class="service-desc">
+                            Idéale pour les petits chantiers et le débarras de garage. Parfaite pour les particuliers.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Réserver
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="6" y="18" width="44" height="32" rx="3"/>
+                                <path d="M6 30H50"/>
+                                <path d="M16 18V10C16 8.89543 16.8954 8 18 8H38C39.1046 8 40 8.89543 40 10V18"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Benne 5m³</h3>
+                        <p class="service-desc">
+                            Format polyvalent pour travaux moyens, déchets verts importants ou petite rénovation.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Réserver
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="4" y="16" width="48" height="36" rx="3"/>
+                                <path d="M4 28H52"/>
+                                <path d="M14 16V8C14 6.89543 14.8954 6 16 6H40C41.1046 6 42 6.89543 42 8V16"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Benne 8m³</h3>
+                        <p class="service-desc">
+                            Grande capacité pour gros chantiers, démolition ou nettoyage complet de terrain.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Réserver
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M28 8C28 8 14 20 14 32C14 39.732 20.268 46 28 46C35.732 46 42 39.732 42 32C42 20 28 8 28 8Z"/>
+                                <path d="M20 32L26 38L36 26"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Déchets Verts</h3>
+                        <p class="service-desc">
+                            Évacuation de tous vos déchets de jardin : branches, feuilles, tontes, souches.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Réserver
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="8" y="28" width="16" height="16" rx="2"/>
+                                <rect x="20" y="20" width="16" height="16" rx="2"/>
+                                <rect x="32" y="24" width="16" height="16" rx="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Gravats</h3>
+                        <p class="service-desc">
+                            Évacuation de gravats, béton, tuiles et matériaux de construction ou démolition.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Réserver
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="14" y="8" width="28" height="40" rx="2"/>
+                                <path d="M14 16H42"/>
+                                <path d="M22 24H34"/>
+                                <path d="M22 32H30"/>
+                                <circle cx="28" cy="42" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Encombrants</h3>
+                        <p class="service-desc">
+                            Débarras de meubles, électroménager et tout type d'encombrants de votre domicile.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            Réserver
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bennes Showcase -->
+    <section class="bennes-showcase" id="bennes">
+        <div class="container">
+            <div class="bennes-grid">
+                <div class="bennes-content">
+                    <span class="section-label">Location de bennes</span>
+                    <h2 class="section-title">La Solution Simple Pour Vos Déchets</h2>
+                    <p class="section-subtitle">
+                        Livraison et récupération de bennes sur Pertuis et tout le Luberon.
+                        Un service clé en main pour particuliers et professionnels.
+                    </p>
+
+                    <div class="bennes-list">
+                        <div class="benne-item">
+                            <div class="benne-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 18H3a2 2 0 01-2-2V8a2 2 0 012-2h3.93a2 2 0 011.66.9l.82 1.2a2 2 0 001.66.9H21a2 2 0 012 2v7a2 2 0 01-2 2h-2"/>
+                                    <circle cx="7" cy="18" r="2"/>
+                                    <circle cx="17" cy="18" r="2"/>
+                                </svg>
+                            </div>
+                            <div class="benne-info">
+                                <h4>Livraison express</h4>
+                                <p>Benne livrée sous 24-48h directement chez vous</p>
+                            </div>
+                        </div>
+
+                        <div class="benne-item">
+                            <div class="benne-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                </svg>
+                            </div>
+                            <div class="benne-info">
+                                <h4>Durée flexible</h4>
+                                <p>Gardez la benne le temps qu'il vous faut</p>
+                            </div>
+                        </div>
+
+                        <div class="benne-item">
+                            <div class="benne-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="17 8 12 3 7 8"/>
+                                    <line x1="12" y1="3" x2="12" y2="15"/>
+                                </svg>
+                            </div>
+                            <div class="benne-info">
+                                <h4>Évacuation incluse</h4>
+                                <p>On récupère et on s'occupe du traitement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bennes-visual">
+                    <div class="benne-3d">
+                        <div class="benne-illustration">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="35" width="100" height="60" rx="6" stroke="currentColor" stroke-width="3" fill="none"/>
+                                <path d="M10 55H110" stroke="currentColor" stroke-width="3"/>
+                                <path d="M25 35V20C25 17.2386 27.2386 15 30 15H90C92.7614 15 95 17.2386 95 20V35" stroke="currentColor" stroke-width="3"/>
+                                <circle cx="30" cy="95" r="10" stroke="currentColor" stroke-width="3" fill="none"/>
+                                <circle cx="90" cy="95" r="10" stroke="currentColor" stroke-width="3" fill="none"/>
+                                <path d="M40 95H80" stroke="currentColor" stroke-width="3"/>
+                            </svg>
+                        </div>
+                        <div class="benne-sizes">
+                            <span class="size-badge">3m³</span>
+                            <span class="size-badge">5m³</span>
+                            <span class="size-badge">8m³</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <div class="about-image">
+                        <div class="about-image-content">
+                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M60 15C60 15 30 40 30 65C30 81.5685 43.4315 95 60 95C76.5685 95 90 81.5685 90 65C90 40 60 15 60 15Z" stroke="currentColor" stroke-width="3" fill="none"/>
+                                <path d="M60 30V80" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M45 55H75" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="about-badge">
+                        <div class="about-badge-number">8+</div>
+                        <div class="about-badge-text">ans d'expérience</div>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <span class="section-label">À propos</span>
+                    <h2 class="section-title">Le Savoir-Faire Est la Clé de la Réussite</h2>
+                    <p class="about-text">
+                        Issu d'une <strong>famille agricole</strong>, Fabrice a fondé JNL Service
+                        il y a plus de 8 ans avec une passion profonde pour les espaces verts
+                        et un sens aigu du service client.
+                    </p>
+                    <p class="about-text">
+                        Aujourd'hui, nous proposons une <strong>double expertise</strong> unique :
+                        l'entretien de vos jardins et la location de bennes pour l'évacuation
+                        de tous vos déchets. Un seul interlocuteur pour tous vos besoins.
+                    </p>
+
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <span class="value-text">Travail soigné</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <span class="value-text">Ponctualité</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                                </svg>
+                            </div>
+                            <span class="value-text">Passion</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <span class="value-text">Qualité pro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zone d'intervention -->
+    <section class="zone" id="zone">
+        <div class="container">
+            <div class="zone-grid">
+                <div class="zone-map">
+                    <div class="map-circles">
+                        <div class="map-circle"></div>
+                        <div class="map-circle"></div>
+                        <div class="map-circle"></div>
+                    </div>
+                    <div class="map-center">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="map-labels">
+                        <span class="map-label label-pertuis">Pertuis</span>
+                        <span class="map-label label-aix">Aix-en-Provence</span>
+                        <span class="map-label label-luberon">Luberon</span>
+                        <span class="map-label label-vaucluse">Vaucluse</span>
+                    </div>
+                </div>
+
+                <div class="zone-content">
+                    <span class="section-label">Zone d'intervention</span>
+                    <h2 class="section-title">Nous Intervenons Près de Chez Vous</h2>
+                    <p class="section-subtitle">
+                        Basés à Pertuis, nous nous déplaçons dans un large périmètre
+                        pour répondre à tous vos besoins.
+                    </p>
+
+                    <div class="zone-list">
+                        <div class="zone-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Pertuis et communes alentours</span>
+                        </div>
+                        <div class="zone-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Aix-en-Provence et région</span>
+                        </div>
+                        <div class="zone-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Parc naturel du Luberon</span>
+                        </div>
+                        <div class="zone-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Vaucluse & Bouches-du-Rhône</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2 class="cta-title">Prêt à Démarrer Votre Projet ?</h2>
+                    <p class="cta-subtitle">
+                        Contactez-nous pour un devis gratuit. Réponse garantie sous 48h.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="tel:0610878892" class="btn-phone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                            06 10 87 88 92
+                        </a>
+                        <a href="mailto:jnlservices84120@gmail.com" class="btn-email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Envoyer un email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Demandez Votre Devis Gratuit</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Téléphone</div>
+                            <div class="contact-value"><a href="tel:0610878892">06 10 87 88 92</a></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value"><a href="mailto:jnlservices84120@gmail.com">jnlservices84120@gmail.com</a></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Adresse</div>
+                            <div class="contact-value">Bd Jean Guigues, 84120 Pertuis</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-label">Horaires</div>
+                            <div class="contact-value">Lun - Ven : 8h - 18h</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="https://www.facebook.com/profile.php?id=61552544526017" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            Suivez-nous sur Facebook
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="06 00 00 00 00">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Type de service</label>
+                        <select id="service" name="service">
+                            <option value="">Sélectionnez un service</option>
+                            <optgroup label="Espace Vert">
+                                <option value="entretien">Entretien de jardin</option>
+                                <option value="taille">Taille & Élagage</option>
+                                <option value="plantation">Plantation & Création</option>
+                                <option value="amenagement">Aménagement paysager</option>
+                                <option value="arrosage">Arrosage & Irrigation</option>
+                            </optgroup>
+                            <optgroup label="Location Bennes">
+                                <option value="benne-3m">Benne 3m³</option>
+                                <option value="benne-5m">Benne 5m³</option>
+                                <option value="benne-8m">Benne 8m³</option>
+                                <option value="dechets-verts">Déchets verts</option>
+                                <option value="gravats">Gravats</option>
+                            </optgroup>
+                            <option value="autre">Autre demande</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Votre message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet ou besoin..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        Envoyer ma demande
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-jnl">JNL</span>Service
+                    </a>
+                    <p class="footer-desc">
+                        Expert en entretien de jardin et location de bennes depuis plus de 8 ans.
+                        Pertuis, Aix-en-Provence et tout le Luberon.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Navigation</h4>
+                    <a href="#accueil">Accueil</a>
+                    <a href="#services">Services</a>
+                    <a href="#bennes">Bennes</a>
+                    <a href="#about">À propos</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Espace Vert</h4>
+                    <a href="#services">Entretien jardin</a>
+                    <a href="#services">Taille & Élagage</a>
+                    <a href="#services">Plantation</a>
+                    <a href="#services">Aménagement</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Bennes</h4>
+                    <a href="#bennes">Location bennes</a>
+                    <a href="#bennes">Déchets verts</a>
+                    <a href="#bennes">Gravats</a>
+                    <a href="#bennes">Encombrants</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 JNL Service. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="pages/mentions-legales.html">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // CURSOR GLOW EFFECT
+        // ============================================
+        const cursorGlow = document.getElementById('cursorGlow');
+        let currentColor = '#22c55e';
+
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX - 200 + 'px';
+            cursorGlow.style.top = e.clientY - 200 + 'px';
+        });
+
+        // Change color based on section
+        document.querySelectorAll('.card-jardin, .services-jardin, .about').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorGlow.style.background = '#22c55e';
+            });
+        });
+
+        document.querySelectorAll('.card-bennes, .services-bennes, .bennes-showcase').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorGlow.style.background = '#f97316';
+            });
+        });
+
+        // ============================================
+        // HEADER SCROLL
+        // ============================================
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // ============================================
+        // MOBILE NAV
+        // ============================================
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ============================================
+        // SERVICES TABS
+        // ============================================
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.services-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.dataset.tab;
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `tab-${tab}`) {
+                        content.classList.add('active');
+                    }
+                });
+
+                // Update cursor glow color
+                cursorGlow.style.background = tab === 'jardin' ? '#22c55e' : '#f97316';
+            });
+        });
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ============================================
+        // FORM HANDLING
+        // ============================================
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            if (!data.name || !data.phone || !data.message) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+
+            const btn = this.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Envoi en cours...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Merci ! Votre message a été envoyé. Nous vous recontacterons sous 48h.');
+                contactForm.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1500);
+        });
+
+        // ============================================
+        // PHONE INPUT FORMAT
+        // ============================================
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                value = value.match(/.{1,2}/g).join(' ');
+            }
+            if (value.length > 14) value = value.substring(0, 14);
+            this.value = value;
+        });
+
+        // Hide cursor glow on mobile
+        if (window.innerWidth < 1024) {
+            cursorGlow.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
