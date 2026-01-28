@@ -160,31 +160,9 @@
                 gap: 0.75rem;
             }
 
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-                background: var(--primary);
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-            }
-
-            .logo-icon svg {
-                width: 24px;
-                height: 24px;
-            }
-
-            .logo-text {
-                font-size: 1.25rem;
-                font-weight: 700;
-                color: var(--primary);
-            }
-
-            .logo-text span {
-                font-weight: 400;
-                color: var(--text-light);
+            .logo-img {
+                height: 50px;
+                width: auto;
             }
 
             .nav {
@@ -570,11 +548,122 @@
             }
 
             /* ============================================
+           JARDIN SECTION
+           ============================================ */
+            .jardin {
+                padding: 5rem 0;
+                background: var(--bg-alt);
+            }
+
+            .jardin-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+            }
+
+            .jardin-content {
+                max-width: 480px;
+            }
+
+            .jardin-features {
+                margin-top: 2rem;
+            }
+
+            .jardin-feature {
+                display: flex;
+                gap: 1rem;
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .jardin-feature:last-child {
+                border-bottom: none;
+            }
+
+            .jardin-feature-icon {
+                width: 40px;
+                height: 40px;
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                color: var(--secondary);
+            }
+
+            .jardin-feature-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .jardin-feature h4 {
+                font-size: 0.9375rem;
+                font-weight: 600;
+                margin-bottom: 0.25rem;
+            }
+
+            .jardin-feature p {
+                font-size: 0.8125rem;
+                color: var(--text-light);
+            }
+
+            .jardin-visual {
+                display: flex;
+                justify-content: center;
+            }
+
+            .jardin-cards {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .jardin-card {
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .jardin-card-icon {
+                width: 48px;
+                height: 48px;
+                background: rgba(45, 90, 61, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 0.75rem;
+                color: var(--secondary);
+            }
+
+            .jardin-card-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .jardin-card-title {
+                font-size: 0.9375rem;
+                font-weight: 600;
+                margin-bottom: 0.25rem;
+            }
+
+            .jardin-card-desc {
+                font-size: 0.75rem;
+                color: var(--text-light);
+            }
+
+            /* ============================================
            BENNES SECTION
            ============================================ */
             .bennes {
                 padding: 5rem 0;
-                background: var(--bg-alt);
             }
 
             .bennes-grid {
@@ -1292,6 +1381,7 @@
             @media (max-width: 1024px) {
                 .hero-grid,
                 .services-grid,
+                .jardin-grid,
                 .bennes-grid,
                 .about-grid,
                 .zone-grid {
@@ -1300,6 +1390,7 @@
                 }
 
                 .hero-content,
+                .jardin-content,
                 .bennes-content,
                 .about-content,
                 .zone-content {
@@ -1377,6 +1468,7 @@
                     grid-template-columns: 1fr;
                 }
 
+                .jardin-cards,
                 .bennes-cards {
                     grid-template-columns: 1fr;
                 }
@@ -1442,25 +1534,18 @@
             <div class="container">
                 <div class="header-inner">
                     <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                            >
-                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                <path d="M2 17l10 5 10-5" />
-                                <path d="M2 12l10 5 10-5" />
-                            </svg>
-                        </div>
-                        <div class="logo-text">JNL <span>Service</span></div>
+                        <img
+                            src="images/logo_jnl_services_transparent_nohalo.png"
+                            alt="JNL-Services Logo"
+                            class="logo-img"
+                        />
                     </a>
 
                     <nav class="nav" id="nav">
                         <a href="#services" class="nav-link">Services</a>
+                        <a href="#jardin" class="nav-link">Jardin</a>
                         <a href="#bennes" class="nav-link">Bennes</a>
-                        <a href="#about" class="nav-link">A propos</a>
+                        <a href="#about" class="nav-link">À propos</a>
                         <a href="#zone" class="nav-link">Zone d'intervention</a>
                         <a href="#contact" class="btn btn-primary"
                             >Contactez-nous</a
@@ -1489,8 +1574,8 @@
                         <p class="hero-subtitle">
                             Depuis plus de 8 ans, JNL Service accompagne les
                             particuliers et professionnels dans l'entretien de
-                            leurs espaces verts et l'evacuation de leurs
-                            dechets.
+                            leurs espaces verts et l'évacuation de leurs
+                            déchets.
                         </p>
                         <div class="hero-buttons">
                             <a href="tel:0610878892" class="btn btn-primary">
@@ -1514,7 +1599,7 @@
                             <div class="stat">
                                 <div class="stat-number">8+</div>
                                 <div class="stat-label">
-                                    Annees d'experience
+                                    Années d'expérience
                                 </div>
                             </div>
                             <div class="stat">
@@ -1522,7 +1607,7 @@
                                 <div class="stat-label">Clients satisfaits</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-number">30km</div>
+                                <div class="stat-number">25km</div>
                                 <div class="stat-label">
                                     Rayon d'intervention
                                 </div>
@@ -1546,7 +1631,7 @@
                             </div>
                             <h3>Deux expertises, un seul interlocuteur</h3>
                             <p>
-                                Simplifiez vos projets d'amenagement et de
+                                Simplifiez vos projets d'aménagement et de
                                 nettoyage avec un partenaire unique et fiable.
                             </p>
                         </div>
@@ -1586,7 +1671,7 @@
                                 </svg>
                             </div>
                             <h3>Location bennes</h3>
-                            <p>Toutes capacites</p>
+                            <p>Toutes capacités</p>
                         </div>
                     </div>
                 </div>
@@ -1599,11 +1684,11 @@
                 <div class="section-header">
                     <div class="section-label">Nos services</div>
                     <h2 class="section-title">
-                        Des prestations adaptees a vos besoins
+                        Des prestations adaptées à vos besoins
                     </h2>
                     <p class="section-subtitle">
-                        Solutions completes pour l'entretien de vos espaces
-                        verts et la gestion de vos dechets.
+                        Solutions complètes pour l'entretien de vos espaces
+                        verts et la gestion de vos déchets.
                     </p>
                 </div>
 
@@ -1646,7 +1731,7 @@
                                 </div>
                                 <div class="service-item-content">
                                     <h4>Tonte et scarification</h4>
-                                    <p>Entretien regulier de vos pelouses</p>
+                                    <p>Entretien régulier de vos pelouses</p>
                                 </div>
                             </div>
                             <div class="service-item">
@@ -1663,7 +1748,7 @@
                                 <div class="service-item-content">
                                     <h4>Taille de haies et arbustes</h4>
                                     <p>
-                                        Mise en forme et entretien des vegetaux
+                                        Mise en forme et entretien des végétaux
                                     </p>
                                 </div>
                             </div>
@@ -1679,9 +1764,9 @@
                                     </svg>
                                 </div>
                                 <div class="service-item-content">
-                                    <h4>Elagage d'arbres</h4>
+                                    <h4>Élagage d'arbres</h4>
                                     <p>
-                                        Intervention securisee sur tous types
+                                        Intervention sécurisée sur tous types
                                         d'arbres
                                     </p>
                                 </div>
@@ -1698,8 +1783,8 @@
                                     </svg>
                                 </div>
                                 <div class="service-item-content">
-                                    <h4>Desherbage et nettoyage</h4>
-                                    <p>Entretien des allees et massifs</p>
+                                    <h4>Désherbage et nettoyage</h4>
+                                    <p>Entretien des allées et massifs</p>
                                 </div>
                             </div>
                         </div>
@@ -1748,7 +1833,7 @@
                                     </svg>
                                 </div>
                                 <div class="service-item-content">
-                                    <h4>Dechets verts</h4>
+                                    <h4>Déchets verts</h4>
                                     <p>Branches, feuilles, tontes de gazon</p>
                                 </div>
                             </div>
@@ -1764,8 +1849,8 @@
                                     </svg>
                                 </div>
                                 <div class="service-item-content">
-                                    <h4>Gravats et materiaux</h4>
-                                    <p>Beton, carrelage, pierres, briques</p>
+                                    <h4>Gravats et matériaux</h4>
+                                    <p>Béton, carrelage, pierres, briques</p>
                                 </div>
                             </div>
                             <div class="service-item">
@@ -1780,8 +1865,11 @@
                                     </svg>
                                 </div>
                                 <div class="service-item-content">
-                                    <h4>Encombrants</h4>
-                                    <p>Meubles, electromenager, divers</p>
+                                    <h4>Encombrants / DIB</h4>
+                                    <p>
+                                        Meubles, cartons, bois, plastiques et
+                                        plâtres
+                                    </p>
                                 </div>
                             </div>
                             <div class="service-item">
@@ -1796,8 +1884,181 @@
                                     </svg>
                                 </div>
                                 <div class="service-item-content">
-                                    <h4>Livraison et enlevement</h4>
-                                    <p>Service rapide sous 24 a 48h</p>
+                                    <h4>Livraison et enlèvement</h4>
+                                    <p>Service rapide sous 24 à 48h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jardin -->
+        <section class="jardin" id="jardin">
+            <div class="container">
+                <div class="jardin-grid">
+                    <div class="jardin-content">
+                        <div class="section-label">Entretien de jardin</div>
+                        <h2 class="section-title">
+                            Des espaces verts entretenus avec soin
+                        </h2>
+                        <p class="section-subtitle">
+                            Particuliers ou professionnels, nous prenons soin de
+                            vos jardins avec des prestations adaptées à chaque
+                            saison.
+                        </p>
+
+                        <div class="jardin-features">
+                            <div class="jardin-feature">
+                                <div class="jardin-feature-icon">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12,6 12,12 16,14" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Interventions régulières</h4>
+                                    <p>
+                                        Contrats d'entretien hebdomadaires,
+                                        mensuels ou ponctuels
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="jardin-feature">
+                                <div class="jardin-feature-icon">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Équipement professionnel</h4>
+                                    <p>
+                                        Matériel adapté pour tous types de
+                                        jardins
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="jardin-feature">
+                                <div class="jardin-feature-icon">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                                        />
+                                        <polyline points="17,8 12,3 7,8" />
+                                        <line x1="12" y1="3" x2="12" y2="15" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Évacuation des déchets</h4>
+                                    <p>
+                                        Enlèvement et traitement des déchets
+                                        verts inclus
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="jardin-visual">
+                        <div class="jardin-cards">
+                            <div class="jardin-card">
+                                <div class="jardin-card-icon">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <rect
+                                            x="3"
+                                            y="3"
+                                            width="18"
+                                            height="18"
+                                            rx="2"
+                                            ry="2"
+                                        />
+                                        <line x1="3" y1="9" x2="21" y2="9" />
+                                    </svg>
+                                </div>
+                                <div class="jardin-card-title">Tonte</div>
+                                <div class="jardin-card-desc">
+                                    Pelouses impeccables
+                                </div>
+                            </div>
+                            <div class="jardin-card">
+                                <div class="jardin-card-icon">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                        <path d="M2 17l10 5 10-5" />
+                                        <path d="M2 12l10 5 10-5" />
+                                    </svg>
+                                </div>
+                                <div class="jardin-card-title">
+                                    Taille haies
+                                </div>
+                                <div class="jardin-card-desc">
+                                    Haies et arbustes
+                                </div>
+                            </div>
+                            <div class="jardin-card">
+                                <div class="jardin-card-icon">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="jardin-card-title">Élagage</div>
+                                <div class="jardin-card-desc">
+                                    Arbres et branches
+                                </div>
+                            </div>
+                            <div class="jardin-card">
+                                <div class="jardin-card-icon">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="jardin-card-title">Désherbage</div>
+                                <div class="jardin-card-desc">
+                                    Allées et massifs
                                 </div>
                             </div>
                         </div>
@@ -1813,12 +2074,12 @@
                     <div class="bennes-content">
                         <div class="section-label">Location de bennes</div>
                         <h2 class="section-title">
-                            Des conteneurs adaptes a chaque projet
+                            Des conteneurs adaptés à chaque projet
                         </h2>
                         <p class="section-subtitle">
                             Particuliers ou professionnels, nous proposons des
-                            bennes de differentes capacites pour repondre a tous
-                            vos besoins d'evacuation.
+                            bennes de différentes capacités pour répondre à tous
+                            vos besoins d'évacuation.
                         </p>
 
                         <div class="bennes-features">
@@ -1846,7 +2107,7 @@
                                 <div>
                                     <h4>Livraison rapide</h4>
                                     <p>
-                                        Mise a disposition sous 24 a 48 heures
+                                        Mise à disposition sous 24 à 48 heures
                                     </p>
                                 </div>
                             </div>
@@ -1863,8 +2124,11 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4>Duree flexible</h4>
-                                    <p>Location a la journee ou a la semaine</p>
+                                    <h4>Durée flexible</h4>
+                                    <p>
+                                        Location à la journée, à la semaine ou
+                                        moins
+                                    </p>
                                 </div>
                             </div>
                             <div class="benne-feature">
@@ -1883,8 +2147,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4>Enlevement inclus</h4>
-                                    <p>Traitement et recyclage des dechets</p>
+                                    <h4>Enlèvement inclus</h4>
+                                    <p>Traitement et recyclage des déchets</p>
                                 </div>
                             </div>
                         </div>
@@ -1900,25 +2164,25 @@
                                 </div>
                             </div>
                             <div class="benne-card">
-                                <div class="benne-card-size">5m³</div>
+                                <div class="benne-card-size">6m³</div>
                                 <div class="benne-card-label">
                                     Benne standard
                                 </div>
                                 <div class="benne-card-uses">
-                                    Renovation, demenagement
+                                    Rénovation, déménagement
                                 </div>
                             </div>
                             <div class="benne-card">
-                                <div class="benne-card-size">8m³</div>
+                                <div class="benne-card-size">7m³</div>
                                 <div class="benne-card-label">Grande benne</div>
                                 <div class="benne-card-uses">
                                     Gros oeuvre, chantiers
                                 </div>
                             </div>
                             <div class="benne-card">
-                                <div class="benne-card-size">15m³</div>
+                                <div class="benne-card-size">12m³</div>
                                 <div class="benne-card-label">
-                                    Tres grande benne
+                                    Très grande benne
                                 </div>
                                 <div class="benne-card-uses">
                                     Projets importants
@@ -1948,24 +2212,24 @@
                             </svg>
                         </div>
                         <h3>8+ ans</h3>
-                        <p>d'experience a votre service</p>
+                        <p>d'expérience à votre service</p>
                     </div>
 
                     <div class="about-content">
-                        <div class="section-label">A propos</div>
+                        <div class="section-label">À propos</div>
                         <h2 class="section-title">
                             Un partenaire de confiance
                         </h2>
                         <p class="about-text">
                             <strong>JNL Service</strong> est une entreprise
-                            familiale basee a Pertuis, specialisee dans
+                            familiale basée à Pertuis, spécialisée dans
                             l'entretien des espaces verts et la location de
-                            bennes pour l'evacuation des dechets.
+                            bennes pour l'évacuation des déchets.
                         </p>
                         <p class="about-text">
                             Notre engagement : vous offrir un service de
-                            qualite, ponctuel et adapte a vos besoins. Nous
-                            intervenons aupres des particuliers et des
+                            qualité, ponctuel et adapté à vos besoins. Nous
+                            intervenons auprès des particuliers et des
                             professionnels dans tout le Luberon et les environs
                             d'Aix-en-Provence.
                         </p>
@@ -1998,7 +2262,7 @@
                                         <polyline points="12,6 12,12 16,14" />
                                     </svg>
                                 </div>
-                                <span class="value-text">Ponctualite</span>
+                                <span class="value-text">Ponctualité</span>
                             </div>
                             <div class="value-item">
                                 <div class="value-icon">
@@ -2013,7 +2277,7 @@
                                         <path d="M2 12l10 5 10-5" />
                                     </svg>
                                 </div>
-                                <span class="value-text">Fiabilite</span>
+                                <span class="value-text">Fiabilité</span>
                             </div>
                             <div class="value-item">
                                 <div class="value-icon">
@@ -2067,11 +2331,11 @@
                     <div class="zone-content">
                         <div class="section-label">Zone d'intervention</div>
                         <h2 class="section-title">
-                            Nous intervenons dans un rayon de 30km
+                            Nous intervenons dans un rayon de 25km
                         </h2>
                         <p class="section-subtitle">
-                            Notre equipe se deplace dans tout le Vaucluse et les
-                            Bouches-du-Rhone pour repondre a vos besoins.
+                            Notre équipe se déplace dans tout le Vaucluse et les
+                            Bouches-du-Rhône pour répondre à vos besoins.
                         </p>
 
                         <div class="zone-list">
@@ -2095,7 +2359,7 @@
                                 >
                                     <polyline points="20,6 9,17 4,12" />
                                 </svg>
-                                <span>Aix-en-Provence et agglomeration</span>
+                                <span>Aix-en-Provence et agglomération</span>
                             </div>
                             <div class="zone-item">
                                 <svg
@@ -2129,11 +2393,11 @@
         <section class="testimonials">
             <div class="container">
                 <div class="section-header">
-                    <div class="section-label">Temoignages</div>
+                    <div class="section-label">Témoignages</div>
                     <h2 class="section-title">Ce que disent nos clients</h2>
                     <p class="section-subtitle">
-                        La satisfaction de nos clients est notre priorite.
-                        Decouvrez leurs avis.
+                        La satisfaction de nos clients est notre priorité.
+                        Découvrez leurs avis.
                     </p>
                 </div>
 
@@ -2209,9 +2473,9 @@
                             </svg>
                         </div>
                         <p class="testimonial-text">
-                            "Location de benne tres pratique pour nos travaux de
-                            renovation. Livraison rapide et tarifs corrects.
-                            Service impeccable du debut a la fin."
+                            "Location de benne très pratique pour nos travaux de
+                            rénovation. Livraison rapide et tarifs corrects.
+                            Service impeccable du début à la fin."
                         </p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">PL</div>
@@ -2253,9 +2517,9 @@
                             </svg>
                         </div>
                         <p class="testimonial-text">
-                            "Nous faisons appel a JNL depuis 3 ans pour
-                            l'entretien de notre copropriete. Travail serieux et
-                            regulier, je ne peux que recommander."
+                            "Nous faisons appel à JNL depuis 3 ans pour
+                            l'entretien de notre copropriété. Travail sérieux et
+                            régulier, je ne peux que recommander."
                         </p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">SB</div>
@@ -2294,8 +2558,8 @@
                 <div class="cta-box">
                     <h2 class="cta-title">Besoin d'un devis gratuit ?</h2>
                     <p class="cta-subtitle">
-                        Contactez-nous pour discuter de votre projet. Reponse
-                        rapide et devis personnalise sous 24h.
+                        Contactez-nous pour discuter de votre projet. Réponse
+                        rapide et devis personnalisé sous 24h.
                     </p>
                     <div class="cta-buttons">
                         <a href="tel:0610878892" class="btn btn-white">
@@ -2426,7 +2690,7 @@
                             <div>
                                 <div class="contact-card-label">Horaires</div>
                                 <div class="contact-card-value">
-                                    Lun - Sam : 8h - 18h
+                                    Lun - Sam : 8h30 - 17h30
                                 </div>
                             </div>
                         </div>
@@ -2481,7 +2745,7 @@
                             <label for="service">Type de service</label>
                             <select id="service" name="service">
                                 <option value="">
-                                    Selectionnez un service
+                                    Sélectionnez un service
                                 </option>
                                 <option value="jardin">
                                     Entretien de jardin
@@ -2498,7 +2762,7 @@
                             <textarea
                                 id="message"
                                 name="message"
-                                placeholder="Decrivez votre projet ou votre besoin..."
+                                placeholder="Décrivez votre projet ou votre besoin..."
                             ></textarea>
                         </div>
                         <button type="submit" class="btn-submit">
@@ -2524,25 +2788,15 @@
                 <div class="footer-grid">
                     <div class="footer-brand">
                         <a href="#" class="logo">
-                            <div class="logo-icon">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                >
-                                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                    <path d="M2 17l10 5 10-5" />
-                                    <path d="M2 12l10 5 10-5" />
-                                </svg>
-                            </div>
-                            <div class="logo-text">
-                                JNL <span>Service</span>
-                            </div>
+                            <img
+                                src="images/logo_jnl_services_transparent_nohalo.png"
+                                alt="JNL-Services Logo"
+                                class="logo-img"
+                            />
                         </a>
                         <p class="footer-desc">
                             Expert en entretien de jardin et location de bennes
-                            depuis plus de 8 ans. Nous intervenons a Pertuis,
+                            depuis plus de 8 ans. Nous intervenons à Pertuis,
                             Aix-en-Provence et dans tout le Luberon.
                         </p>
                     </div>
@@ -2559,7 +2813,7 @@
                     <div>
                         <h4 class="footer-title">Informations</h4>
                         <nav class="footer-links">
-                            <a href="#about">A propos</a>
+                            <a href="#about">À propos</a>
                             <a href="#zone">Zone d'intervention</a>
                             <a href="#contact">Contact</a>
                         </nav>
@@ -2578,10 +2832,10 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; 2025 JNL Service. Tous droits reserves.</p>
+                    <p>&copy; 2025 JNL Service. Tous droits réservés.</p>
                     <div class="footer-legal">
-                        <a href="#">Mentions legales</a>
-                        <a href="#">Politique de confidentialite</a>
+                        <a href="#">Mentions légales</a>
+                        <a href="#">Politique de confidentialité</a>
                     </div>
                 </div>
             </div>
