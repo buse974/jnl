@@ -70,17 +70,34 @@
             /* ============================================
            VARIABLES & RESET
            ============================================ */
-            /* PALETTE VERT FORET - Corporate mais nature */
+            /* PALETTE VERT FORET - Corporate mais nature avec peps */
             :root {
                 --primary: #1a4d2e;
-                --primary-dark: #133d23;
+                --primary-dark: #0f3a1f;
+                --primary-light: #2d6b42;
                 --secondary: #2d5a3d;
-                --accent: #8b7355;
+                --accent: #d4a84b;
+                --accent-light: #f5e6c8;
                 --text: #1a1a1a;
-                --text-light: #6b7280;
+                --text-light: #5a6269;
                 --bg: #ffffff;
-                --bg-alt: #f7f9f7;
+                --bg-alt: #f8faf8;
+                --bg-dark: #1a4d2e;
                 --border: #e2e8e0;
+                --gradient-hero: linear-gradient(
+                    135deg,
+                    #1a4d2e 0%,
+                    #2d6b42 50%,
+                    #1a4d2e 100%
+                );
+                --gradient-accent: linear-gradient(
+                    135deg,
+                    #d4a84b 0%,
+                    #c49a3d 100%
+                );
+                --shadow-sm: 0 2px 8px rgba(26, 77, 46, 0.08);
+                --shadow-md: 0 4px 20px rgba(26, 77, 46, 0.12);
+                --shadow-lg: 0 8px 40px rgba(26, 77, 46, 0.16);
                 --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
             }
 
@@ -101,6 +118,84 @@
                 background: var(--bg);
                 color: var(--text);
                 line-height: 1.6;
+                cursor: none;
+            }
+
+            /* Custom cursor */
+            .cursor {
+                position: fixed;
+                width: 10px;
+                height: 10px;
+                background: var(--primary);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 10000;
+                transition:
+                    transform 0.1s ease,
+                    opacity 0.1s ease;
+                transform: translate(-50%, -50%);
+            }
+
+            .cursor-follower {
+                position: fixed;
+                width: 35px;
+                height: 35px;
+                border: 2px solid var(--primary);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition:
+                    transform 0.15s ease,
+                    width 0.2s ease,
+                    height 0.2s ease,
+                    border-color 0.2s ease;
+                transform: translate(-50%, -50%);
+                opacity: 0.5;
+            }
+
+            .cursor-hover {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 1;
+            }
+
+            .cursor-follower-hover {
+                width: 50px;
+                height: 50px;
+                border-color: var(--accent);
+                opacity: 0.8;
+            }
+
+            a,
+            button,
+            .btn,
+            .gallery-item,
+            .nav-link,
+            .service-block,
+            .testimonial-card,
+            .jardin-card,
+            .benne-card,
+            .value-item {
+                cursor: none;
+            }
+
+            @media (max-width: 1024px) {
+                .cursor,
+                .cursor-follower {
+                    display: none;
+                }
+                body,
+                a,
+                button,
+                .btn,
+                .gallery-item,
+                .nav-link,
+                .service-block,
+                .testimonial-card,
+                .jardin-card,
+                .benne-card,
+                .value-item {
+                    cursor: auto;
+                }
             }
 
             a {
@@ -141,12 +236,6 @@
                     box-shadow 0.3s;
             }
 
-            .header.scrolled {
-                background: var(--bg);
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            }
-
             .header-inner {
                 display: flex;
                 justify-content: space-between;
@@ -165,21 +254,55 @@
                 width: auto;
             }
 
+            .logo-text {
+                font-size: 0.9rem;
+                font-weight: 600;
+                background: linear-gradient(
+                    to bottom,
+                    var(--primary),
+                    var(--primary-light)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+                margin-left: -0.3rem;
+            }
+
             .nav {
                 display: flex;
                 align-items: center;
-                gap: 2.5rem;
+                gap: 0.5rem;
+                background: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                padding: 0.35rem;
+                border-radius: 50px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             }
 
             .nav-link {
-                font-size: 0.9375rem;
-                font-weight: 500;
-                color: var(--text-light);
-                transition: color 0.2s;
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: var(--text);
+                transition: all 0.25s ease;
+                padding: 0.6rem 1.1rem;
+                border-radius: 50px;
+                position: relative;
             }
 
             .nav-link:hover {
+                background: white;
                 color: var(--primary);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            }
+
+            .nav .btn-primary {
+                margin-left: 0.25rem;
+                padding: 0.6rem 1.25rem;
+                border-radius: 50px;
+                font-size: 0.875rem;
             }
 
             .btn {
@@ -199,21 +322,26 @@
             .btn-primary {
                 background: var(--primary);
                 color: white;
+                box-shadow: 0 4px 14px rgba(26, 77, 46, 0.3);
             }
 
             .btn-primary:hover {
                 background: var(--primary-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(26, 77, 46, 0.4);
             }
 
             .btn-outline {
                 background: transparent;
                 color: var(--primary);
-                border: 1px solid var(--primary);
+                border: 2px solid var(--primary);
             }
 
             .btn-outline:hover {
                 background: var(--primary);
                 color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 14px rgba(26, 77, 46, 0.3);
             }
 
             .btn svg {
@@ -239,42 +367,69 @@
             /* ============================================
            HERO
            ============================================ */
-            /* HERO AVEC IMAGE FULL SCREEN */
+            /* HERO SPLIT DESIGN */
             .hero {
-                padding: 8rem 0 5rem;
-                background: var(--bg-alt);
+                padding: 0;
+                background: var(--bg);
                 position: relative;
                 overflow: hidden;
                 min-height: 100vh;
+                display: flex;
+                align-items: center;
             }
 
             .hero::before {
                 content: "";
                 position: absolute;
                 top: 0;
-                left: 0;
-                width: 100%;
+                right: 0;
+                width: 55%;
                 height: 100%;
-                background-image: url("https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920&q=80");
+                background-image: url("images/galeries/optimized/IMG_20230625_113544.jpg");
                 background-size: cover;
                 background-position: center;
-                pointer-events: none;
-                opacity: 0.2;
+                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
             }
 
             .hero::after {
                 content: "";
                 position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 250px;
+                top: 0;
+                right: 0;
+                width: 55%;
+                height: 100%;
                 background: linear-gradient(
-                    to top,
-                    var(--bg) 0%,
-                    transparent 100%
+                    135deg,
+                    rgba(26, 77, 46, 0.7) 0%,
+                    rgba(45, 107, 66, 0.6) 100%
                 );
-                pointer-events: none;
+                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+            }
+
+            .hero .hero-content {
+                color: var(--text);
+            }
+
+            .hero .hero-title {
+                color: var(--text);
+            }
+
+            .hero .hero-subtitle {
+                color: var(--text-light);
+            }
+
+            .hero .stat-number {
+                color: var(--primary);
+            }
+
+            .hero .stat-label {
+                color: var(--text-light);
+            }
+
+            .hero .hero-stats {
+                border-top: 1px solid var(--border);
             }
 
             .hero > .container {
@@ -287,6 +442,7 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 4rem;
                 align-items: center;
+                padding: 6rem 0;
             }
 
             .hero-content {
@@ -298,11 +454,15 @@
                 align-items: center;
                 gap: 0.5rem;
                 padding: 0.5rem 1rem;
-                background: rgba(30, 58, 95, 0.08);
+                background: linear-gradient(
+                    135deg,
+                    var(--primary) 0%,
+                    var(--primary-light) 100%
+                );
                 border-radius: 100px;
                 font-size: 0.8125rem;
                 font-weight: 600;
-                color: var(--primary);
+                color: white;
                 margin-bottom: 1.5rem;
             }
 
@@ -359,18 +519,42 @@
 
             .hero-card {
                 background: white;
-                border: 1px solid var(--border);
-                border-radius: 12px;
+                border-radius: 16px;
                 padding: 1.5rem;
-                transition: box-shadow 0.2s;
+                transition: all 0.3s ease;
+                box-shadow: var(--shadow-md);
+                border: 1px solid var(--border);
             }
 
             .hero-card:hover {
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-lg);
+                border-color: var(--primary-light);
             }
 
             .hero-card:first-child {
                 grid-column: span 2;
+                background: linear-gradient(
+                    135deg,
+                    var(--primary) 0%,
+                    var(--primary-light) 100%
+                );
+                color: white;
+                border: none;
+            }
+
+            .hero-card:first-child h3,
+            .hero-card:first-child p {
+                color: white;
+            }
+
+            .hero-card:first-child p {
+                opacity: 0.85;
+            }
+
+            .hero-card:first-child .hero-card-icon {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
             }
 
             .hero-card-icon {
@@ -412,7 +596,109 @@
            SERVICES
            ============================================ */
             .services {
-                padding: 5rem 0;
+                padding: 6rem 0 5rem;
+                background: linear-gradient(180deg, #f8faf8 0%, #ffffff 100%);
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Floating shapes animation */
+            .floating-shapes {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 0;
+            }
+
+            .floating-shape {
+                position: absolute;
+                border-radius: 50%;
+            }
+
+            .floating-shape-1 {
+                width: 400px;
+                height: 400px;
+                background: rgba(26, 77, 46, 0.08);
+                top: -100px;
+                right: -100px;
+                animation: float-slow 50s ease-in-out infinite;
+            }
+
+            .floating-shape-2 {
+                width: 280px;
+                height: 280px;
+                background: rgba(212, 168, 75, 0.12);
+                bottom: 5%;
+                left: -100px;
+                animation: float-slow 55s ease-in-out infinite reverse;
+            }
+
+            .floating-shape-3 {
+                width: 200px;
+                height: 200px;
+                border: 3px solid rgba(26, 77, 46, 0.15);
+                top: 30%;
+                right: 5%;
+                animation: float-rotate 80s linear infinite;
+            }
+
+            .floating-shape-4 {
+                width: 120px;
+                height: 120px;
+                background: rgba(26, 77, 46, 0.06);
+                top: 10%;
+                left: 8%;
+                animation: float-slow 45s ease-in-out infinite;
+            }
+
+            @keyframes float-slow {
+                0%,
+                100% {
+                    transform: translateY(0) translateX(0);
+                }
+                25% {
+                    transform: translateY(-15px) translateX(8px);
+                }
+                50% {
+                    transform: translateY(-8px) translateX(-8px);
+                }
+                75% {
+                    transform: translateY(-20px) translateX(4px);
+                }
+            }
+
+            @keyframes float-rotate {
+                0% {
+                    transform: rotate(0deg) translateY(0);
+                }
+                50% {
+                    transform: rotate(180deg) translateY(-15px);
+                }
+                100% {
+                    transform: rotate(360deg) translateY(0);
+                }
+            }
+
+            .floating-shape-hero-1 {
+                width: 500px;
+                height: 500px;
+                background: rgba(26, 77, 46, 0.05);
+                bottom: 5%;
+                left: -150px;
+                animation: float-slow 60s ease-in-out infinite;
+            }
+
+            .floating-shape-hero-2 {
+                width: 180px;
+                height: 180px;
+                border: 3px solid rgba(212, 168, 75, 0.2);
+                bottom: 20%;
+                left: 28%;
+                animation: float-rotate 90s linear infinite;
             }
 
             .section-header {
@@ -452,8 +738,32 @@
             .service-block {
                 background: var(--bg-alt);
                 border: 1px solid var(--border);
-                border-radius: 12px;
+                border-radius: 16px;
                 padding: 2rem;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .service-block::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background: var(--primary);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .service-block:hover {
+                box-shadow: var(--shadow-md);
+                border-color: transparent;
+            }
+
+            .service-block:hover::before {
+                opacity: 1;
             }
 
             .service-block-header {
@@ -482,6 +792,36 @@
             .service-block-icon.orange {
                 background: rgba(201, 162, 39, 0.15);
                 color: #9a7b1c;
+            }
+
+            .service-block-icon.purple {
+                background: rgba(107, 70, 193, 0.12);
+                color: #6b46c1;
+            }
+
+            .service-block-full {
+                grid-column: span 2;
+            }
+
+            .service-list-horizontal {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
+
+            @media (max-width: 1024px) {
+                .service-block-full {
+                    grid-column: span 1;
+                }
+                .service-list-horizontal {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 640px) {
+                .service-list-horizontal {
+                    grid-template-columns: 1fr;
+                }
             }
 
             .service-block-icon svg {
@@ -531,6 +871,11 @@
                 color: #9a7b1c;
             }
 
+            .service-item-icon.purple {
+                background: rgba(107, 70, 193, 0.12);
+                color: #6b46c1;
+            }
+
             .service-item-icon svg {
                 width: 12px;
                 height: 12px;
@@ -551,8 +896,25 @@
            JARDIN SECTION
            ============================================ */
             .jardin {
-                padding: 5rem 0;
-                background: var(--bg-alt);
+                padding: 6rem 0;
+                background: linear-gradient(180deg, #f0f7f0 0%, #e8f5e8 100%);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .jardin::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(
+                    circle,
+                    rgba(26, 77, 46, 0.08) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
             }
 
             .jardin-grid {
@@ -629,6 +991,13 @@
                 border-radius: 12px;
                 padding: 1.5rem;
                 text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .jardin-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-md);
+                border-color: var(--primary-light);
             }
 
             .jardin-card-icon {
@@ -663,7 +1032,9 @@
            BENNES SECTION
            ============================================ */
             .bennes {
-                padding: 5rem 0;
+                padding: 6rem 0;
+                background: var(--bg);
+                position: relative;
             }
 
             .bennes-grid {
@@ -740,6 +1111,30 @@
                 border-radius: 12px;
                 padding: 1.5rem;
                 text-align: center;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .benne-card::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: var(--gradient-accent);
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .benne-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .benne-card:hover::after {
+                transform: scaleX(1);
             }
 
             .benne-card-size {
@@ -765,6 +1160,33 @@
            ============================================ */
             .about {
                 padding: 5rem 0;
+                background: var(--bg-dark);
+                color: white;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .about::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                pointer-events: none;
+            }
+
+            .about .section-label {
+                color: var(--accent);
+            }
+
+            .about .section-title {
+                color: white;
+            }
+
+            .about .about-text {
+                color: rgba(255, 255, 255, 0.8);
             }
 
             .about-grid {
@@ -775,9 +1197,13 @@
             }
 
             .about-visual {
-                background: var(--bg-alt);
-                border: 1px solid var(--border);
-                border-radius: 12px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    rgba(255, 255, 255, 0.05) 100%
+                );
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 16px;
                 padding: 3rem;
                 display: flex;
                 flex-direction: column;
@@ -785,17 +1211,18 @@
                 justify-content: center;
                 text-align: center;
                 min-height: 400px;
+                backdrop-filter: blur(10px);
             }
 
             .about-visual-icon {
                 width: 80px;
                 height: 80px;
-                background: var(--primary);
+                background: var(--accent);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: white;
+                color: var(--primary-dark);
                 margin-bottom: 1.5rem;
             }
 
@@ -807,13 +1234,13 @@
             .about-visual h3 {
                 font-size: 3rem;
                 font-weight: 700;
-                color: var(--primary);
+                color: var(--accent);
                 line-height: 1;
             }
 
             .about-visual p {
                 font-size: 1rem;
-                color: var(--text-light);
+                color: rgba(255, 255, 255, 0.7);
                 margin-top: 0.5rem;
             }
 
@@ -840,21 +1267,31 @@
                 align-items: center;
                 gap: 0.75rem;
                 padding: 1rem;
-                background: var(--bg-alt);
-                border: 1px solid var(--border);
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            .value-item:hover {
+                background: rgba(255, 255, 255, 0.12);
+                transform: translateX(4px);
             }
 
             .value-icon {
                 width: 36px;
                 height: 36px;
-                background: white;
-                border: 1px solid var(--border);
+                background: var(--accent);
+                border: none;
                 border-radius: 6px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: var(--primary);
+                color: var(--primary-dark);
+            }
+
+            .value-text {
+                color: white;
             }
 
             .value-icon svg {
@@ -872,7 +1309,11 @@
            ============================================ */
             .zone {
                 padding: 5rem 0;
-                background: var(--bg-alt);
+                background: linear-gradient(
+                    180deg,
+                    var(--bg) 0%,
+                    var(--bg-alt) 100%
+                );
             }
 
             .zone-grid {
@@ -883,21 +1324,22 @@
             }
 
             .zone-map {
-                background: white;
+                background: linear-gradient(135deg, #f0f7f0 0%, #e8f5e8 100%);
                 border: 1px solid var(--border);
-                border-radius: 12px;
+                border-radius: 16px;
                 padding: 2rem;
                 min-height: 350px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 position: relative;
+                box-shadow: var(--shadow-sm);
             }
 
             .zone-map-center {
-                width: 60px;
-                height: 60px;
-                background: var(--primary);
+                width: 70px;
+                height: 70px;
+                background: var(--gradient-hero);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
@@ -905,6 +1347,20 @@
                 color: white;
                 position: relative;
                 z-index: 2;
+                box-shadow: 0 4px 20px rgba(26, 77, 46, 0.3);
+                animation: pulse-ring 2s ease-out infinite;
+            }
+
+            @keyframes pulse-ring {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(26, 77, 46, 0.4);
+                }
+                70% {
+                    box-shadow: 0 0 0 15px rgba(26, 77, 46, 0);
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(26, 77, 46, 0);
+                }
             }
 
             .zone-map-center svg {
@@ -992,6 +1448,199 @@
             }
 
             /* ============================================
+           GALLERY
+           ============================================ */
+            .gallery {
+                padding: 5rem 0;
+                background: linear-gradient(135deg, #f8faf8 0%, #f0f5f0 100%);
+                position: relative;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 280px;
+                gap: 1rem;
+            }
+
+            .gallery-item {
+                position: relative;
+                border-radius: 16px;
+                overflow: hidden;
+                cursor: pointer;
+                box-shadow: var(--shadow-sm);
+                transition: all 0.4s ease;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .gallery-item:hover {
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-4px);
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.08);
+            }
+
+            .gallery-item::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to top,
+                    rgba(26, 77, 46, 0.6) 0%,
+                    transparent 60%
+                );
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .gallery-item:hover::after {
+                opacity: 1;
+            }
+
+            .gallery-item--large {
+                grid-column: span 1;
+                grid-row: span 2;
+            }
+
+            .gallery-item--wide {
+                grid-column: span 2;
+            }
+
+            .gallery-grid-second {
+                margin-top: 1rem;
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 220px;
+            }
+
+            @media (max-width: 1024px) {
+                .gallery-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(4, 200px);
+                }
+                .gallery-grid-second {
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(2, 180px);
+                }
+                .gallery-item--large {
+                    grid-column: span 2;
+                    grid-row: span 1;
+                }
+                .gallery-item--wide {
+                    grid-column: span 1;
+                }
+            }
+
+            @media (max-width: 640px) {
+                .gallery-grid {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto;
+                }
+                .gallery-grid-second {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: auto;
+                }
+                .gallery-item {
+                    height: 220px;
+                }
+                .gallery-item--large,
+                .gallery-item--wide {
+                    grid-column: span 1;
+                    grid-row: span 1;
+                }
+            }
+
+            /* Lightbox */
+            .lightbox {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                background: rgba(0, 0, 0, 0.95);
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+            }
+
+            .lightbox.active {
+                display: flex;
+            }
+
+            .lightbox img {
+                max-width: 90%;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 8px;
+            }
+
+            .lightbox-close {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                width: 48px;
+                height: 48px;
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                border-radius: 50%;
+                color: white;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.2s;
+            }
+
+            .lightbox-close:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .lightbox-close svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .lightbox-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 48px;
+                height: 48px;
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                border-radius: 50%;
+                color: white;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.2s;
+            }
+
+            .lightbox-nav:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .lightbox-nav svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .lightbox-prev {
+                left: 1.5rem;
+            }
+
+            .lightbox-next {
+                right: 1.5rem;
+            }
+
+            /* ============================================
            TESTIMONIALS
            ============================================ */
             .testimonials {
@@ -1008,13 +1657,28 @@
             .testimonial-card {
                 background: white;
                 border: 1px solid var(--border);
-                border-radius: 12px;
+                border-radius: 16px;
                 padding: 1.5rem;
-                transition: box-shadow 0.2s;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .testimonial-card::before {
+                content: '"';
+                position: absolute;
+                top: 1rem;
+                right: 1.5rem;
+                font-size: 4rem;
+                font-family: Georgia, serif;
+                color: var(--primary);
+                opacity: 0.1;
+                line-height: 1;
             }
 
             .testimonial-card:hover {
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                box-shadow: var(--shadow-md);
+                transform: translateY(-4px);
+                border-color: var(--primary-light);
             }
 
             .testimonial-stars {
@@ -1102,11 +1766,44 @@
             }
 
             .cta-box {
-                background: var(--primary);
-                border-radius: 16px;
+                background: var(--gradient-hero);
+                border-radius: 20px;
                 padding: 4rem;
                 text-align: center;
                 color: white;
+                position: relative;
+                overflow: hidden;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .cta-box::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+
+            .cta-box::after {
+                content: "";
+                position: absolute;
+                bottom: -50%;
+                left: -20%;
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(
+                    circle,
+                    rgba(212, 168, 75, 0.2) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
             }
 
             .cta-title {
@@ -1421,14 +2118,30 @@
                     background: var(--bg);
                     flex-direction: column;
                     justify-content: center;
-                    gap: 1.5rem;
+                    gap: 0.5rem;
                     padding: 2rem;
                     transition: right 0.3s ease;
                     border-left: 1px solid var(--border);
+                    border-radius: 0;
+                    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
                 }
 
                 .nav.active {
                     right: 0;
+                }
+
+                .nav-link {
+                    padding: 1rem;
+                    width: 100%;
+                    text-align: center;
+                    border-radius: 8px;
+                }
+
+                .nav .btn-primary {
+                    width: 100%;
+                    justify-content: center;
+                    margin-left: 0;
+                    margin-top: 1rem;
                 }
 
                 .nav-toggle {
@@ -1447,17 +2160,50 @@
                     transform: rotate(-45deg) translate(5px, -5px);
                 }
 
+                .hero::before,
+                .hero::after {
+                    width: 100%;
+                    height: 35%;
+                    top: auto;
+                    bottom: 0;
+                    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0 100%);
+                }
+
+                .hero-grid {
+                    padding: 7rem 0 18rem;
+                    grid-template-columns: 1fr;
+                }
+
                 .hero-title {
-                    font-size: 2rem;
+                    font-size: 1.75rem;
+                    line-height: 1.3;
+                }
+
+                .hero-subtitle {
+                    font-size: 1rem;
                 }
 
                 .hero-stats {
                     flex-wrap: wrap;
-                    gap: 2rem;
+                    gap: 1.5rem;
                 }
 
                 .hero-visual {
-                    grid-template-columns: 1fr;
+                    display: none;
+                }
+
+                .hero-buttons {
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+
+                .hero-buttons .btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                .floating-shapes {
+                    display: none;
                 }
 
                 .hero-card:first-child {
@@ -1468,9 +2214,27 @@
                     grid-template-columns: 1fr;
                 }
 
+                .service-block-full {
+                    grid-column: span 1;
+                }
+
+                .service-list-horizontal {
+                    grid-template-columns: 1fr;
+                }
+
                 .jardin-cards,
                 .bennes-cards {
                     grid-template-columns: 1fr;
+                }
+
+                .gallery-grid {
+                    grid-template-columns: 1fr;
+                    grid-auto-rows: 220px;
+                }
+
+                .gallery-grid-second {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-auto-rows: 180px;
                 }
 
                 .contact-grid {
@@ -1482,12 +2246,21 @@
                 }
 
                 .cta-box {
-                    padding: 3rem 2rem;
+                    padding: 2.5rem 1.5rem;
+                }
+
+                .cta-title {
+                    font-size: 1.5rem;
+                }
+
+                .testimonials-grid {
+                    grid-template-columns: 1fr;
                 }
 
                 .footer-grid {
                     grid-template-columns: 1fr;
                     text-align: center;
+                    gap: 2rem;
                 }
 
                 .footer-brand {
@@ -1502,6 +2275,14 @@
                     flex-direction: column;
                     gap: 1rem;
                 }
+
+                .section-title {
+                    font-size: 1.5rem;
+                }
+
+                .about-values {
+                    grid-template-columns: 1fr;
+                }
             }
 
             @media (max-width: 480px) {
@@ -1509,15 +2290,24 @@
                     padding: 0 1rem;
                 }
 
-                .hero {
-                    padding: 7rem 0 3rem;
+                .hero-grid {
+                    padding: 6rem 0 16rem;
                 }
 
-                .hero-buttons {
-                    flex-direction: column;
+                .hero-title {
+                    font-size: 1.5rem;
                 }
 
-                .about-values {
+                .hero-badge {
+                    font-size: 0.75rem;
+                    padding: 0.4rem 0.8rem;
+                }
+
+                .stat-number {
+                    font-size: 1.5rem;
+                }
+
+                .gallery-grid-second {
                     grid-template-columns: 1fr;
                 }
 
@@ -1525,10 +2315,27 @@
                     flex-direction: column;
                     gap: 1.5rem;
                 }
+
+                .zone-map {
+                    min-height: 280px;
+                }
+
+                .about-visual {
+                    min-height: 300px;
+                    padding: 2rem;
+                }
+
+                .about-visual h3 {
+                    font-size: 2.5rem;
+                }
             }
         </style>
     </head>
     <body>
+        <!-- Custom Cursor -->
+        <div class="cursor"></div>
+        <div class="cursor-follower"></div>
+
         <!-- Header -->
         <header class="header">
             <div class="container">
@@ -1539,6 +2346,7 @@
                             alt="JNL-Services Logo"
                             class="logo-img"
                         />
+                        <span class="logo-text">Services</span>
                     </a>
 
                     <nav class="nav" id="nav">
@@ -1546,7 +2354,7 @@
                         <a href="#jardin" class="nav-link">Jardin</a>
                         <a href="#bennes" class="nav-link">Bennes</a>
                         <a href="#about" class="nav-link">À propos</a>
-                        <a href="#zone" class="nav-link">Zone d'intervention</a>
+                        <a href="#galerie" class="nav-link">Galerie</a>
                         <a href="#contact" class="btn btn-primary"
                             >Contactez-nous</a
                         >
@@ -1563,6 +2371,10 @@
 
         <!-- Hero -->
         <section class="hero">
+            <div class="floating-shapes">
+                <div class="floating-shape floating-shape-hero-1"></div>
+                <div class="floating-shape floating-shape-hero-2"></div>
+            </div>
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
@@ -1680,6 +2492,12 @@
 
         <!-- Services -->
         <section class="services" id="services">
+            <div class="floating-shapes">
+                <div class="floating-shape floating-shape-1"></div>
+                <div class="floating-shape floating-shape-2"></div>
+                <div class="floating-shape floating-shape-3"></div>
+                <div class="floating-shape floating-shape-4"></div>
+            </div>
             <div class="container">
                 <div class="section-header">
                     <div class="section-label">Nos services</div>
@@ -1816,7 +2634,7 @@
                                     Location de bennes
                                 </h3>
                                 <p class="service-block-desc">
-                                    Solutions d'evacuation de dechets
+                                    Solutions d'évacuation de déchets
                                 </p>
                             </div>
                         </div>
@@ -1886,6 +2704,101 @@
                                 <div class="service-item-content">
                                     <h4>Livraison et enlèvement</h4>
                                     <p>Service rapide sous 24 à 48h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vide maison -->
+                    <div class="service-block service-block-full">
+                        <div class="service-block-header">
+                            <div class="service-block-icon purple">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                                    />
+                                    <polyline points="9,22 9,12 15,12 15,22" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="service-block-title">Vide maison</h3>
+                                <p class="service-block-desc">
+                                    Débarras complet de vos biens
+                                </p>
+                            </div>
+                        </div>
+                        <div class="service-list service-list-horizontal">
+                            <div class="service-item">
+                                <div class="service-item-icon purple">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <polyline points="20,6 9,17 4,12" />
+                                    </svg>
+                                </div>
+                                <div class="service-item-content">
+                                    <h4>Succession et héritage</h4>
+                                    <p>
+                                        Prise en charge complète et respectueuse
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-item-icon purple">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <polyline points="20,6 9,17 4,12" />
+                                    </svg>
+                                </div>
+                                <div class="service-item-content">
+                                    <h4>Déménagement</h4>
+                                    <p>Débarras avant ou après votre départ</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-item-icon purple">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <polyline points="20,6 9,17 4,12" />
+                                    </svg>
+                                </div>
+                                <div class="service-item-content">
+                                    <h4>Cave, grenier, garage</h4>
+                                    <p>Évacuation de tous vos encombrants</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-item-icon purple">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <polyline points="20,6 9,17 4,12" />
+                                    </svg>
+                                </div>
+                                <div class="service-item-content">
+                                    <h4>Tri et recyclage</h4>
+                                    <p>
+                                        Valorisation et traitement responsable
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -2389,6 +3302,133 @@
             </div>
         </section>
 
+        <!-- Galerie -->
+        <section class="gallery" id="galerie">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Nos réalisations</div>
+                    <h2 class="section-title">Découvrez notre travail</h2>
+                    <p class="section-subtitle">
+                        Un aperçu de nos interventions chez nos clients. Jardins
+                        entretenus, bennes livrées, chantiers réalisés.
+                    </p>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Ligne 1 -->
+                    <div class="gallery-item" onclick="openLightbox(0)">
+                        <img
+                            src="images/galeries/optimized/IMG_20230625_113544.jpg"
+                            alt="Entretien jardin JNL Service"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(1)">
+                        <img
+                            src="images/galeries/optimized/20260112_153112.jpg"
+                            alt="Benne JNL Service"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(2)">
+                        <img
+                            src="images/galeries/optimized/IMG_20210202_113420.jpg"
+                            alt="Taille de haie"
+                            loading="lazy"
+                        />
+                    </div>
+                    <!-- Ligne 2 -->
+                    <div class="gallery-item" onclick="openLightbox(3)">
+                        <img
+                            src="images/galeries/optimized/IMG_20210202_113430.jpg"
+                            alt="Entretien espaces verts"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(4)">
+                        <img
+                            src="images/galeries/optimized/IMG_20230417_100502.jpg"
+                            alt="Jardin entretenu"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(5)">
+                        <img
+                            src="images/galeries/optimized/IMG_20241119_152046.jpg"
+                            alt="Réalisation paysagère"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+
+                <div class="gallery-grid gallery-grid-second">
+                    <div class="gallery-item" onclick="openLightbox(6)">
+                        <img
+                            src="images/galeries/optimized/20190620_102252.jpg"
+                            alt="Tonte pelouse"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(7)">
+                        <img
+                            src="images/galeries/optimized/IMG_20210201_100504.jpg"
+                            alt="Chantier JNL Service"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(8)">
+                        <img
+                            src="images/galeries/optimized/IMG_20250213_091048.jpg"
+                            alt="Travaux espaces verts"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            <button
+                class="lightbox-nav lightbox-prev"
+                onclick="navigateLightbox(-1)"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <polyline points="15,18 9,12 15,6" />
+                </svg>
+            </button>
+            <img id="lightbox-img" src="" alt="Image agrandie" />
+            <button
+                class="lightbox-nav lightbox-next"
+                onclick="navigateLightbox(1)"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <polyline points="9,18 15,12 9,6" />
+                </svg>
+            </button>
+        </div>
+
         <!-- Temoignages -->
         <section class="testimonials">
             <div class="container">
@@ -2751,8 +3791,9 @@
                                     Entretien de jardin
                                 </option>
                                 <option value="benne">Location de benne</option>
+                                <option value="vide-maison">Vide maison</option>
                                 <option value="les-deux">
-                                    Les deux services
+                                    Plusieurs services
                                 </option>
                                 <option value="autre">Autre demande</option>
                             </select>
@@ -2804,8 +3845,9 @@
                     <div>
                         <h4 class="footer-title">Services</h4>
                         <nav class="footer-links">
-                            <a href="#services">Entretien jardin</a>
+                            <a href="#jardin">Entretien jardin</a>
                             <a href="#bennes">Location bennes</a>
+                            <a href="#services">Vide maison</a>
                             <a href="#contact">Devis gratuit</a>
                         </nav>
                     </div>
@@ -2815,6 +3857,7 @@
                         <nav class="footer-links">
                             <a href="#about">À propos</a>
                             <a href="#zone">Zone d'intervention</a>
+                            <a href="#galerie">Galerie</a>
                             <a href="#contact">Contact</a>
                         </nav>
                     </div>
@@ -2884,6 +3927,120 @@
                     }
                 });
             });
+
+            // Lightbox gallery
+            const galleryImages = [
+                "images/galeries/optimized/IMG_20230625_113544.jpg",
+                "images/galeries/optimized/20260112_153112.jpg",
+                "images/galeries/optimized/IMG_20210202_113420.jpg",
+                "images/galeries/optimized/IMG_20210202_113430.jpg",
+                "images/galeries/optimized/IMG_20230417_100502.jpg",
+                "images/galeries/optimized/IMG_20241119_152046.jpg",
+                "images/galeries/optimized/20190620_102252.jpg",
+                "images/galeries/optimized/IMG_20210201_100504.jpg",
+                "images/galeries/optimized/IMG_20250213_091048.jpg",
+            ];
+            let currentImageIndex = 0;
+
+            function openLightbox(index) {
+                currentImageIndex = index;
+                const lightbox = document.getElementById("lightbox");
+                const lightboxImg = document.getElementById("lightbox-img");
+                lightboxImg.src = galleryImages[index];
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeLightbox() {
+                const lightbox = document.getElementById("lightbox");
+                lightbox.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+
+            function navigateLightbox(direction) {
+                currentImageIndex += direction;
+                if (currentImageIndex < 0)
+                    currentImageIndex = galleryImages.length - 1;
+                if (currentImageIndex >= galleryImages.length)
+                    currentImageIndex = 0;
+                document.getElementById("lightbox-img").src =
+                    galleryImages[currentImageIndex];
+            }
+
+            // Close lightbox on escape key
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") closeLightbox();
+                if (e.key === "ArrowLeft") navigateLightbox(-1);
+                if (e.key === "ArrowRight") navigateLightbox(1);
+            });
+
+            // Close lightbox on background click
+            document
+                .getElementById("lightbox")
+                .addEventListener("click", (e) => {
+                    if (e.target.id === "lightbox") closeLightbox();
+                });
+
+            // Custom cursor
+            const cursor = document.querySelector(".cursor");
+            const follower = document.querySelector(".cursor-follower");
+
+            if (cursor && follower && window.innerWidth > 1024) {
+                let mouseX = 0,
+                    mouseY = 0;
+                let cursorX = 0,
+                    cursorY = 0;
+                let followerX = 0,
+                    followerY = 0;
+
+                document.addEventListener("mousemove", (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                function animateCursor() {
+                    // Cursor follows immediately
+                    cursorX += (mouseX - cursorX) * 0.2;
+                    cursorY += (mouseY - cursorY) * 0.2;
+                    cursor.style.left = cursorX + "px";
+                    cursor.style.top = cursorY + "px";
+
+                    // Follower has delay
+                    followerX += (mouseX - followerX) * 0.1;
+                    followerY += (mouseY - followerY) * 0.1;
+                    follower.style.left = followerX + "px";
+                    follower.style.top = followerY + "px";
+
+                    requestAnimationFrame(animateCursor);
+                }
+                animateCursor();
+
+                // Hover effect on interactive elements
+                const hoverElements = document.querySelectorAll(
+                    "a, button, .btn, .gallery-item, .nav-link, .service-block, .testimonial-card, .jardin-card, .benne-card, .value-item",
+                );
+
+                hoverElements.forEach((el) => {
+                    el.addEventListener("mouseenter", () => {
+                        cursor.classList.add("cursor-hover");
+                        follower.classList.add("cursor-follower-hover");
+                    });
+                    el.addEventListener("mouseleave", () => {
+                        cursor.classList.remove("cursor-hover");
+                        follower.classList.remove("cursor-follower-hover");
+                    });
+                });
+
+                // Hide cursor when leaving window
+                document.addEventListener("mouseleave", () => {
+                    cursor.style.opacity = "0";
+                    follower.style.opacity = "0";
+                });
+                document.addEventListener("mouseenter", () => {
+                    cursor.style.opacity = "1";
+                    follower.style.opacity = "0.5";
+                });
+            }
         </script>
     </body>
 </html>
