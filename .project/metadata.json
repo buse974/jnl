@@ -1,0 +1,26 @@
+{
+  "name": "jnl",
+  "pitch": "Site vitrine pour JNL Service - expert en entretien de jardin et location de bennes à Pertuis et Aix-en-Provence",
+  "type": "landing",
+  "version": "1.0.0",
+  "stack": ["HTML/CSS", "JavaScript", "Docker", "Nginx", "Traefik"],
+  "domain": "jnl-service.fr",
+  "use_nip_io": false,
+  "domains": {
+    "landing": "jnl-service.fr"
+  },
+  "repos": [
+    {
+      "name": "Landing",
+      "type": "landing",
+      "stack": "HTML/CSS/JS",
+      "url": "https://jnl-service.fr",
+      "healthUrl": "https://jnl-service.fr",
+      "github": "https://github.com/buse974/jnl"
+    }
+  ],
+  "env": [],
+  "github_org": "buse974",
+  "contextflow_id": "4c4cad82-e66c-4fb0-8bc1-656ebac49d05",
+  "created_at": "2026-02-07T15:59:00.000Z"
+}

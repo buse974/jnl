@@ -1,0 +1,8 @@
+{
+  "landing": {
+    "name": "jnl",
+    "path": "./",
+    "type": "static",
+    "git": "git@github.com:buse974/jnl.git"
+  }
+}

@@ -1520,6 +1520,10 @@
                 grid-auto-rows: 220px;
             }
 
+            .gallery-scroll-hint {
+                display: none;
+            }
+
             @media (max-width: 1024px) {
                 .gallery-grid {
                     grid-template-columns: repeat(2, 1fr);
@@ -1535,25 +1539,6 @@
                 }
                 .gallery-item--wide {
                     grid-column: span 1;
-                }
-            }
-
-            @media (max-width: 640px) {
-                .gallery-grid {
-                    grid-template-columns: 1fr;
-                    grid-template-rows: auto;
-                }
-                .gallery-grid-second {
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-template-rows: auto;
-                }
-                .gallery-item {
-                    height: 220px;
-                }
-                .gallery-item--large,
-                .gallery-item--wide {
-                    grid-column: span 1;
-                    grid-row: span 1;
                 }
             }
 
@@ -2108,6 +2093,19 @@
             }
 
             @media (max-width: 768px) {
+                /* --- Nav overlay + mobile menu --- */
+                .nav-overlay {
+                    display: none;
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 999;
+                }
+
+                .nav-overlay.active {
+                    display: block;
+                }
+
                 .nav {
                     position: fixed;
                     top: 0;
@@ -2124,6 +2122,7 @@
                     border-left: 1px solid var(--border);
                     border-radius: 0;
                     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                    z-index: 1001;
                 }
 
                 .nav.active {
@@ -2146,6 +2145,8 @@
 
                 .nav-toggle {
                     display: flex;
+                    z-index: 1002;
+                    position: relative;
                 }
 
                 .nav-toggle.active span:nth-child(1) {
@@ -2160,6 +2161,7 @@
                     transform: rotate(-45deg) translate(5px, -5px);
                 }
 
+                /* --- Hero mobile --- */
                 .hero::before,
                 .hero::after {
                     width: 100%;
@@ -2170,17 +2172,28 @@
                 }
 
                 .hero-grid {
-                    padding: 7rem 0 18rem;
+                    padding: 7rem 0 12rem;
                     grid-template-columns: 1fr;
                 }
 
                 .hero-title {
-                    font-size: 1.75rem;
+                    font-size: 1.5rem;
                     line-height: 1.3;
                 }
 
                 .hero-subtitle {
                     font-size: 1rem;
+                }
+
+                .hero-buttons {
+                    flex-direction: column;
+                    gap: 0.75rem;
+                    margin-bottom: 2rem;
+                }
+
+                .hero-buttons .btn {
+                    width: 100%;
+                    justify-content: center;
                 }
 
                 .hero-stats {
@@ -2192,16 +2205,6 @@
                     display: none;
                 }
 
-                .hero-buttons {
-                    flex-direction: column;
-                    gap: 0.75rem;
-                }
-
-                .hero-buttons .btn {
-                    width: 100%;
-                    justify-content: center;
-                }
-
                 .floating-shapes {
                     display: none;
                 }
@@ -2210,8 +2213,48 @@
                     grid-column: span 1;
                 }
 
+                /* --- Sections padding --- */
+                .services,
+                .jardin,
+                .bennes,
+                .testimonials,
+                .cta,
+                .contact,
+                .gallery {
+                    padding: 3.5rem 0;
+                }
+
+                .about {
+                    padding: 3.5rem 0;
+                }
+
+                .zone {
+                    padding: 3.5rem 0;
+                }
+
+                .section-header {
+                    margin-bottom: 2rem;
+                }
+
+                .section-subtitle {
+                    font-size: 0.9rem;
+                }
+
+                /* --- Grids gaps --- */
+                .jardin-grid,
+                .bennes-grid,
+                .about-grid,
+                .zone-grid {
+                    gap: 2rem;
+                }
+
+                /* --- Service blocks --- */
                 .services-grid {
                     grid-template-columns: 1fr;
+                }
+
+                .service-block {
+                    padding: 1.5rem;
                 }
 
                 .service-block-full {
@@ -2222,29 +2265,87 @@
                     grid-template-columns: 1fr;
                 }
 
+                /* --- Cards 2 colonnes sur 768px --- */
                 .jardin-cards,
                 .bennes-cards {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: repeat(2, 1fr);
                 }
 
-                .gallery-grid {
-                    grid-template-columns: 1fr;
-                    grid-auto-rows: 220px;
+                /* --- Gallery carousel mobile --- */
+                .gallery-grid,
+                .gallery-grid.gallery-grid-second {
+                    display: flex;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    -webkit-overflow-scrolling: touch;
+                    gap: 0.75rem;
+                    padding-bottom: 1rem;
+                    scrollbar-width: none;
+                }
+
+                .gallery-grid::-webkit-scrollbar,
+                .gallery-grid-second::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .gallery-grid .gallery-item,
+                .gallery-grid-second .gallery-item {
+                    flex: 0 0 80%;
+                    max-width: 80%;
+                    height: 220px;
+                    scroll-snap-align: center;
+                    border-radius: 12px;
+                }
+
+                .gallery-grid .gallery-item--large,
+                .gallery-grid .gallery-item--wide {
+                    flex: 0 0 80%;
+                    max-width: 80%;
+                    grid-column: unset;
+                    grid-row: unset;
                 }
 
                 .gallery-grid-second {
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-auto-rows: 180px;
+                    margin-top: 0.75rem;
                 }
 
-                .contact-grid {
+                .gallery-grid-second .gallery-item {
+                    height: 180px;
+                }
+
+                /* Gallery scroll hint */
+                .gallery-scroll-hint {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    margin-top: 0.75rem;
+                    font-size: 0.8125rem;
+                    color: var(--text-light);
+                    opacity: 0.7;
+                }
+
+                .gallery-scroll-hint svg {
+                    width: 16px;
+                    height: 16px;
+                    animation: swipe-hint 1.5s ease-in-out infinite;
+                }
+
+                @keyframes swipe-hint {
+                    0%, 100% { transform: translateX(0); }
+                    50% { transform: translateX(6px); }
+                }
+
+                /* --- Testimonials --- */
+                .testimonials-grid {
                     grid-template-columns: 1fr;
                 }
 
-                .form-row {
-                    grid-template-columns: 1fr;
+                .testimonial-card {
+                    padding: 1.25rem;
                 }
 
+                /* --- CTA --- */
                 .cta-box {
                     padding: 2.5rem 1.5rem;
                 }
@@ -2253,14 +2354,38 @@
                     font-size: 1.5rem;
                 }
 
-                .testimonials-grid {
+                .cta-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .cta-buttons .btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                /* --- Contact --- */
+                .contact-grid {
                     grid-template-columns: 1fr;
                 }
 
+                .contact-form {
+                    padding: 1.5rem;
+                }
+
+                .contact-info {
+                    gap: 0.75rem;
+                }
+
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+
+                /* --- Footer --- */
                 .footer-grid {
                     grid-template-columns: 1fr;
                     text-align: center;
-                    gap: 2rem;
+                    gap: 1.5rem;
                 }
 
                 .footer-brand {
@@ -2271,11 +2396,22 @@
                     justify-content: center;
                 }
 
-                .footer-bottom {
+                .footer-links {
+                    display: flex;
                     flex-direction: column;
-                    gap: 1rem;
+                    align-items: center;
                 }
 
+                .footer-bottom {
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+
+                .footer {
+                    padding: 2rem 0 1rem;
+                }
+
+                /* --- Section title --- */
                 .section-title {
                     font-size: 1.5rem;
                 }
@@ -2290,12 +2426,13 @@
                     padding: 0 1rem;
                 }
 
+                /* --- Hero 480px --- */
                 .hero-grid {
-                    padding: 6rem 0 16rem;
+                    padding: 6rem 0 10rem;
                 }
 
                 .hero-title {
-                    font-size: 1.5rem;
+                    font-size: 1.35rem;
                 }
 
                 .hero-badge {
@@ -2303,12 +2440,34 @@
                     padding: 0.4rem 0.8rem;
                 }
 
+                .hero-stats {
+                    gap: 1rem;
+                }
+
                 .stat-number {
                     font-size: 1.5rem;
                 }
 
-                .gallery-grid-second {
+                .section-subtitle {
+                    font-size: 0.85rem;
+                }
+
+                /* --- Cards 1 colonne a 480px --- */
+                .jardin-cards,
+                .bennes-cards {
                     grid-template-columns: 1fr;
+                }
+
+                /* --- Gallery carousel 480px --- */
+                .gallery-grid .gallery-item,
+                .gallery-grid-second .gallery-item {
+                    flex: 0 0 85%;
+                    max-width: 85%;
+                    height: 200px;
+                }
+
+                .gallery-grid-second .gallery-item {
+                    height: 170px;
                 }
 
                 .testimonials-stats {
@@ -2316,10 +2475,43 @@
                     gap: 1.5rem;
                 }
 
+                /* --- Zone map: reduire et cacher labels --- */
                 .zone-map {
-                    min-height: 280px;
+                    min-height: 250px;
+                    padding: 1.5rem;
                 }
 
+                .zone-map-center {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .zone-map-center svg {
+                    width: 22px;
+                    height: 22px;
+                }
+
+                .zone-map-ring:nth-child(2) {
+                    width: 110px;
+                    height: 110px;
+                }
+
+                .zone-map-ring:nth-child(3) {
+                    width: 180px;
+                    height: 180px;
+                }
+
+                .zone-map-ring:nth-child(4) {
+                    width: 250px;
+                    height: 250px;
+                }
+
+                .zone-label.aix,
+                .zone-label.luberon {
+                    display: none;
+                }
+
+                /* --- About --- */
                 .about-visual {
                     min-height: 300px;
                     padding: 2rem;
@@ -2349,6 +2541,7 @@
                         <span class="logo-text">Services</span>
                     </a>
 
+                    <div class="nav-overlay" id="navOverlay"></div>
                     <nav class="nav" id="nav">
                         <a href="#services" class="nav-link">Services</a>
                         <a href="#jardin" class="nav-link">Jardin</a>
@@ -3361,6 +3554,11 @@
                     </div>
                 </div>
 
+                <div class="gallery-scroll-hint">
+                    <span>Glissez pour voir plus</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </div>
+
                 <div class="gallery-grid gallery-grid-second">
                     <div class="gallery-item" onclick="openLightbox(6)">
                         <img
@@ -3898,10 +4096,19 @@
             // Mobile navigation toggle
             const navToggle = document.getElementById("navToggle");
             const nav = document.getElementById("nav");
+            const navOverlay = document.getElementById("navOverlay");
 
             navToggle.addEventListener("click", () => {
                 navToggle.classList.toggle("active");
                 nav.classList.toggle("active");
+                navOverlay.classList.toggle("active");
+            });
+
+            // Close mobile menu when clicking overlay
+            navOverlay.addEventListener("click", () => {
+                navToggle.classList.remove("active");
+                nav.classList.remove("active");
+                navOverlay.classList.remove("active");
             });
 
             // Close mobile menu when clicking a link
@@ -3909,6 +4116,7 @@
                 link.addEventListener("click", () => {
                     navToggle.classList.remove("active");
                     nav.classList.remove("active");
+                    navOverlay.classList.remove("active");
                 });
             });
 
