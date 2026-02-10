@@ -10,18 +10,18 @@
     "Nginx",
     "Traefik"
   ],
-  "domain": "jnl-service.fr",
-  "use_nip_io": false,
+  "domain": "jnl.51.77.223.61.nip.io",
+  "use_nip_io": true,
   "domains": {
-    "landing": "jnl-service.fr"
+    "landing": "jnl.51.77.223.61.nip.io"
   },
   "repos": [
     {
       "name": "Landing",
       "type": "landing",
       "stack": "HTML/CSS/JS",
-      "url": "https://jnl-service.fr",
-      "healthUrl": "https://jnl-service.fr/health.json",
+      "url": "https://jnl.51.77.223.61.nip.io",
+      "healthUrl": "https://jnl.51.77.223.61.nip.io/health.json",
       "github": "https://github.com/buse974/jnl",
       "umamiId": "98aeaeb7-0584-4edd-9784-9b8fd6e1d45c"
     }
