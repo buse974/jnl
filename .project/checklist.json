@@ -1,0 +1,7 @@
+{
+  "checks": {
+    "health_landing": { "status": "applied", "date": "2026-02-10T07:41:00.000Z" },
+    "umami_tracking": { "status": "applied", "date": "2026-02-10T07:41:00.000Z" }
+  },
+  "version": 1
+}
