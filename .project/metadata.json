@@ -21,7 +21,7 @@
       "type": "landing",
       "stack": "HTML/CSS/JS",
       "url": "https://jnl-service.fr",
-      "healthUrl": "https://jnl-service.fr",
+      "healthUrl": "https://jnl-service.fr/health.json",
       "github": "https://github.com/buse974/jnl",
       "umamiId": "98aeaeb7-0584-4edd-9784-9b8fd6e1d45c"
     }
