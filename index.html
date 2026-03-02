@@ -82,8 +82,8 @@
                 "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                    "opens": "07:00",
-                    "closes": "19:00"
+                    "opens": "08:30",
+                    "closes": "17:30"
                 },
                 "areaServed": [
                     {
@@ -120,7 +120,7 @@
                             "itemOffered": {
                                 "@type": "Service",
                                 "name": "Location de bennes",
-                                "description": "Location de bennes 3m³ à 30m³ pour déchets verts, gravats, encombrants à Pertuis et Aix-en-Provence"
+                                "description": "Location de bennes 3m³ à 12m³ pour déchets verts, gravats, encombrants à Pertuis et Aix-en-Provence"
                             }
                         },
                         {
@@ -476,12 +476,13 @@
                 height: 100%;
                 background: linear-gradient(
                     135deg,
-                    rgba(26, 77, 46, 0.7) 0%,
-                    rgba(45, 107, 66, 0.6) 100%
+                    rgba(26, 77, 46, 0.48) 0%,
+                    rgba(45, 107, 66, 0.28) 55%,
+                    rgba(45, 107, 66, 0.18) 100%
                 );
                 clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-                backdrop-filter: blur(6px);
-                -webkit-backdrop-filter: blur(6px);
+                backdrop-filter: blur(2px);
+                -webkit-backdrop-filter: blur(2px);
             }
 
             .hero .hero-content {
@@ -2272,9 +2273,26 @@
                     justify-content: center;
                 }
 
-                .hero-stats {
+                .hero .hero-stats {
                     flex-wrap: wrap;
-                    gap: 1.5rem;
+                    gap: 1rem;
+                    padding: 1rem;
+                    margin-top: 0.5rem;
+                    border: none;
+                    border-top: none;
+                    border-radius: 14px;
+                    background: rgba(255, 255, 255, 0.5);
+                    box-shadow: none !important;
+                    backdrop-filter: none !important;
+                    -webkit-backdrop-filter: none !important;
+                }
+
+                .hero .stat-number {
+                    color: var(--primary-dark);
+                }
+
+                .hero .stat-label {
+                    color: var(--text);
                 }
 
                 .hero-visual {
@@ -3263,7 +3281,7 @@
                             Location de bennes à Pertuis et Aix-en-Provence
                         </h2>
                         <p class="section-subtitle">
-                            Bennes de 3m³ à 30m³ pour déchets verts, gravats,
+                            Bennes de 3m³ à 12m³ pour déchets verts, gravats,
                             encombrants. Livraison et enlèvement inclus dans
                             tout le Vaucluse.
                         </p>
@@ -3313,7 +3331,7 @@
                                     <h4>Durée flexible</h4>
                                     <p>
                                         Location à la journée, à la semaine ou
-                                        moins
+                                        mois
                                     </p>
                                 </div>
                             </div>
@@ -4153,10 +4171,14 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; 2025 JNL Service. Tous droits réservés.</p>
+                    <p>
+                        &copy; 2025 JNL Service. Tous droits réservés.
+                        Développé par
+                        <a href="https://altstud.io/" target="_blank" rel="noopener noreferrer">altstud.io</a>
+                    </p>
                     <div class="footer-legal">
-                        <a href="#">Mentions légales</a>
-                        <a href="#">Politique de confidentialité</a>
+                        <a href="pages/mentions-legales.html">Mentions légales</a>
+                        <a href="pages/mentions-legales.html#donnees-personnelles">Politique de confidentialité</a>
                     </div>
                 </div>
             </div>

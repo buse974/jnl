@@ -3,7 +3,17 @@
     "allow": [
       "mcp__acp__Bash",
       "mcp__acp__Write",
-      "mcp__acp__Edit"
+      "mcp__acp__Edit",
+      "mcp__claude_ai_contextFlow__create_context",
+      "Bash(curl:*)",
+      "Bash(TOKEN=\"Q5C5S6qEB7PdyPYVUhovtFJHTnfHL+h5q62Zfa33i4mnzQ/tiHFHJiDzBZ3CtG3edM5JSeH/KkAL+SuKAgN0f3+9D/L7qx6s+PfeqLmyfFpAWSzsLiaOKSQPo7kh9SjE78/UiGdaIT8mGQ5rpotkI9K6OnjJZ7FG+JMqizgPg13L5fAr/w05yeJB3uk13PMRKWxV2iqoVeI/DsU+owcGb3LP4DEXFdG7gQ3IB9nXAy8MPApv6v0pGYzAilm3SJO9MqyW9nDKLhezZ7YP3lCw0qDsDsTG6n773rwqyet1f5Hop5AZ+egkLaFdEGzKTKbxr5W9+avn7fwH2kn3V2VFzxwvqyzGXH4TuHbW7Mv2vADAbere5YmxqUG2D31F\")",
+      "Bash(rsync:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: add health check and Umami analytics tracking\n\n- Add health.json for site monitoring\n- Configure Umami Analytics with tracking script\n- Update project metadata with umamiId\n- Initialize checklist for project health checks\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "mcp__claude_ai_contextFlow__get_context",
+      "mcp__claude_ai_contextFlow__update_context",
+      "Bash(git commit:*)"
     ]
   }
 }

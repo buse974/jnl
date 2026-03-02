@@ -13,6 +13,7 @@
     let lastScroll = 0;
 
     function handleHeaderScroll() {
+        if (!header) return;
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 50) {
@@ -24,7 +25,9 @@
         lastScroll = currentScroll;
     }
 
-    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+    if (header) {
+        window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+    }
 
     // ============================================
     // MOBILE NAVIGATION
@@ -34,29 +37,33 @@
     const navLinks = document.querySelectorAll('.nav-link');
 
     function toggleMobileNav() {
+        if (!navToggle || !navMenu) return;
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
         document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     }
 
     function closeMobileNav() {
+        if (!navToggle || !navMenu) return;
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    navToggle.addEventListener('click', toggleMobileNav);
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', toggleMobileNav);
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMobileNav);
-    });
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
 
-    // Close menu on outside click
-    document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-            closeMobileNav();
-        }
-    });
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                closeMobileNav();
+            }
+        });
+    }
 
     // ============================================
     // ACTIVE NAVIGATION LINK
