@@ -1,0 +1,27 @@
+{
+  "domains": [
+    {
+      "domain": "jnl-service.fr",
+      "smtp": {
+        "host": "postfix",
+        "port": 25,
+        "from": "noreply@jnl-service.fr"
+      },
+      "dns": {
+        "a": { "name": "mail.ti1.fr", "type": "A", "value": "51.77.223.61" },
+        "spf": { "name": "@", "type": "TXT", "value": "v=spf1 ip4:51.77.223.61 ~all" },
+        "dkim": { "name": "mail._domainkey", "type": "TXT", "value": "v=DKIM1; h=sha256; k=rsa; s=email; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsCblXNeOd05u5bV8Fh/3oBBGJRtr0OInJvaVzvIwnyiybpC4XmN6NfUBBWq/FH+zsYzsDXiR4HqBtNBFHILIOti8ZPwRnwnu6PMWHv9bSQKBp/b0BBA4QhC7EziifMNQ97HKQFwXBjYszhc0hkRj4Gn8ZPI55EBB9YhGLQfPEoCojUCN89Zc98R/hiSksnOdTrzHi/3GEBYW+0D3Yj9OouLK3fq/OxM0vuKUfx7DkUuVNlhfaOqe/HhlOdq4jsh3QfCGcHyVgRs0fmG9aiQ/Yr/7/hlZf9AC79CvxgpAQceLe+dIBirJbJyhda26ZXbiueNEYKw0zwD+QRY3+bswIwIDAQAB" },
+        "dmarc": { "name": "_dmarc", "type": "TXT", "value": "v=DMARC1; p=none; rua=mailto:admin@ti1.fr" }
+      }
+    },
+    {
+      "domain": "jnl.51.77.223.61.nip.io",
+      "smtp": {
+        "host": "postfix",
+        "port": 25,
+        "from": "noreply@jnl.51.77.223.61.nip.io"
+      },
+      "dns": null
+    }
+  ]
+}

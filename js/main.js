@@ -181,49 +181,53 @@
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Get form data
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
 
-            // Basic validation
-            if (!data.name || !data.phone || !data.message) {
+            if (!data.nom || !data.prenom || !data.email || !data.telephone) {
                 showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
                 return;
             }
 
-            // Phone validation
             const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
-            if (!phoneRegex.test(data.phone.replace(/\s/g, ''))) {
+            if (!phoneRegex.test(data.telephone.replace(/\s/g, ''))) {
                 showNotification('Veuillez entrer un numéro de téléphone valide.', 'error');
                 return;
             }
 
-            // Email validation (if provided)
-            if (data.email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(data.email)) {
-                    showNotification('Veuillez entrer une adresse email valide.', 'error');
-                    return;
-                }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showNotification('Veuillez entrer une adresse email valide.', 'error');
+                return;
             }
 
-            // Simulate form submission
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<span>Envoi en cours...</span>';
             submitBtn.disabled = true;
 
-            // Here you would normally send the data to your server
-            // For now, we'll simulate a successful submission
-            setTimeout(() => {
-                showNotification('Merci ! Votre message a été envoyé. Nous vous recontacterons sous 48h.', 'success');
-                contactForm.reset();
+            try {
+                const resp = await fetch('/api/contact.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                const result = await resp.json();
+                if (result.success) {
+                    showNotification('Merci ! Votre message a été envoyé. Nous vous recontacterons sous 48h.', 'success');
+                    contactForm.reset();
+                } else {
+                    showNotification(result.message || 'Une erreur est survenue.', 'error');
+                }
+            } catch {
+                showNotification('Impossible d\'envoyer le message. Réessayez plus tard.', 'error');
+            } finally {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 1500);
+            }
         });
     }
 
