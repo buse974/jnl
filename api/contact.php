@@ -172,8 +172,11 @@ function smtp_send(
     $subjectHeader = 'Subject: ' . encode_header($subject);
     $fromHeader = 'From: ' . encode_header($fromName) . ' <' . $from . '>';
     $replyHeader = filter_var($replyTo, FILTER_VALIDATE_EMAIL) ? ('Reply-To: ' . $replyTo) : '';
+    $messageId = sprintf('<%s.%s@%s>', bin2hex(random_bytes(8)), time(), parse_url('mailto:' . $from, PHP_URL_HOST) ?: 'jnl-service.fr');
     $headers = [
+        'Message-ID: ' . $messageId,
         $fromHeader,
+        'To: ' . $to,
         $replyHeader,
         $subjectHeader,
         'MIME-Version: 1.0',
