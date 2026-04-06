@@ -54,7 +54,7 @@ try {
     }
 
     $to = getenv('MAIL_TO') ?: 'buse974@gmail.com';
-    $from = getenv('MAIL_FROM') ?: 'noreply@jnl-service.fr';
+    $from = getenv('MAIL_FROM') ?: 'noreply@jnl.51.77.223.61.nip.io';
     $fromName = sanitize_line(getenv('MAIL_FROM_NAME') ?: 'JNL Service');
     $subjectPrefix = sanitize_line(getenv('MAIL_SUBJECT_PREFIX') ?: 'JNL Service - Contact');
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
