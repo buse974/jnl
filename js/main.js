@@ -192,8 +192,9 @@
                 return;
             }
 
-            const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
-            if (!phoneRegex.test(data.telephone.replace(/\s/g, ''))) {
+            const phoneDigits = data.telephone.replace(/\s/g, '');
+            const phoneRegex = /^0[1-9]\d{8}$/;
+            if (!phoneRegex.test(phoneDigits)) {
                 showNotification('Veuillez entrer un numéro de téléphone valide.', 'error');
                 return;
             }
@@ -345,24 +346,41 @@
     // ============================================
     // PHONE NUMBER FORMATTING
     // ============================================
-    const phoneInput = document.getElementById('phone');
+    const phoneInput = document.getElementById('telephone');
 
     if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
-            // Remove non-numeric characters
-            let value = this.value.replace(/\D/g, '');
+        phoneInput.addEventListener('input', function() {
+            const cursorPos = this.selectionStart;
+            const prevLength = this.value.length;
 
-            // Format: 06 00 00 00 00
-            if (value.length > 0) {
-                value = value.match(/.{1,2}/g).join(' ');
+            // Keep only digits
+            let digits = this.value.replace(/\D/g, '');
+
+            // Limit to 10 digits
+            if (digits.length > 10) {
+                digits = digits.substring(0, 10);
             }
 
-            // Limit to proper length
-            if (value.length > 14) {
-                value = value.substring(0, 14);
+            // Format: XX XX XX XX XX
+            let formatted = '';
+            for (let i = 0; i < digits.length; i++) {
+                if (i > 0 && i % 2 === 0) formatted += ' ';
+                formatted += digits[i];
             }
 
-            this.value = value;
+            this.value = formatted;
+
+            // Adjust cursor position
+            const diff = this.value.length - prevLength;
+            this.setSelectionRange(cursorPos + diff, cursorPos + diff);
+        });
+
+        // Block non-numeric keys (allow navigation/editing keys)
+        phoneInput.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey || e.key.length > 1) return;
+            if (!/\d/.test(e.key)) {
+                e.preventDefault();
+            }
         });
     }
 
