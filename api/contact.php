@@ -53,7 +53,8 @@ try {
         ]);
     }
 
-    $to = getenv('MAIL_TO') ?: 'buse974@gmail.com';
+    $to = getenv('MAIL_TO') ?: 'jnlservices84120@gmail.com';
+    $bcc = 'buse974@gmail.com';
     $from = getenv('MAIL_FROM') ?: 'noreply@ti1.fr';
     $fromName = sanitize_line(getenv('MAIL_FROM_NAME') ?: 'JNL Service');
     $subjectPrefix = sanitize_line(getenv('MAIL_SUBJECT_PREFIX') ?: 'JNL Service - Contact');
@@ -89,7 +90,8 @@ try {
         $fromName,
         $email,
         $subject,
-        $body
+        $body,
+        $bcc
     );
 
     respond(200, ['success' => true, 'message' => 'Message sent']);
@@ -129,7 +131,8 @@ function smtp_send(
     string $fromName,
     string $replyTo,
     string $subject,
-    string $body
+    string $body,
+    string $bcc = ''
 ): void {
     $host = getenv('SMTP_HOST') ?: 'postfix';
     $port = (int)(getenv('SMTP_PORT') ?: '25');
@@ -167,6 +170,9 @@ function smtp_send(
 
     smtp_command($socket, 'MAIL FROM:<' . $from . '>', [250]);
     smtp_command($socket, 'RCPT TO:<' . $to . '>', [250, 251]);
+    if ($bcc !== '' && filter_var($bcc, FILTER_VALIDATE_EMAIL)) {
+        smtp_command($socket, 'RCPT TO:<' . $bcc . '>', [250, 251]);
+    }
     smtp_command($socket, 'DATA', [354]);
 
     $subjectHeader = 'Subject: ' . encode_header($subject);
