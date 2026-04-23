@@ -327,17 +327,18 @@
                 position: absolute;
                 inset: 0;
                 background:
-                    radial-gradient(
-                        circle at 20% 30%,
-                        rgba(15, 58, 31, 0.6) 0%,
-                        rgba(15, 58, 31, 0) 60%
+                    linear-gradient(
+                        90deg,
+                        rgba(10, 28, 18, 0.88) 0%,
+                        rgba(15, 58, 31, 0.72) 30%,
+                        rgba(15, 58, 31, 0.35) 60%,
+                        rgba(15, 58, 31, 0.15) 100%
                     ),
                     linear-gradient(
-                        115deg,
-                        rgba(15, 58, 31, 0.85) 0%,
-                        rgba(26, 77, 46, 0.62) 45%,
-                        rgba(45, 107, 66, 0.32) 75%,
-                        rgba(45, 107, 66, 0.18) 100%
+                        180deg,
+                        rgba(10, 28, 18, 0.3) 0%,
+                        rgba(10, 28, 18, 0) 40%,
+                        rgba(10, 28, 18, 0.4) 100%
                     );
                 z-index: 0;
             }
@@ -358,32 +359,25 @@
 
             .hero-grid {
                 display: grid;
-                grid-template-columns: 1.15fr 1fr;
-                gap: 3.5rem;
+                grid-template-columns: 1.25fr 1fr;
+                gap: 4rem;
                 align-items: center;
-                padding: 7rem 0 5rem;
+                padding: 8rem 0 6rem;
             }
 
             .hero-content {
-                max-width: 620px;
-                background: rgba(255, 255, 255, 0.08);
-                backdrop-filter: blur(18px) saturate(140%);
-                -webkit-backdrop-filter: blur(18px) saturate(140%);
-                border: 1px solid rgba(255, 255, 255, 0.18);
-                border-radius: 24px;
-                padding: 2.5rem 2.75rem;
-                box-shadow:
-                    0 20px 60px rgba(0, 0, 0, 0.25),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                max-width: 680px;
             }
 
             .hero .hero-title {
                 color: white;
-                text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+                text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
             }
 
             .hero .hero-subtitle {
-                color: rgba(255, 255, 255, 0.88);
+                color: rgba(255, 255, 255, 0.82);
+                max-width: 540px;
+                text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
             }
 
             .hero .stat-number {
@@ -434,50 +428,81 @@
             .hero:not(.page-hero) .hero-badge {
                 background: transparent;
                 box-shadow: none;
-                padding: 0;
-                color: var(--accent);
-                font-size: 0.78rem;
-                font-weight: 600;
-                letter-spacing: 0.22em;
+                padding: 0.35rem 0;
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.72rem;
+                font-weight: 500;
+                letter-spacing: 0.3em;
                 text-transform: uppercase;
-                margin-bottom: 1.75rem;
+                margin-bottom: 2rem;
                 border-radius: 0;
+                position: relative;
             }
 
             .hero:not(.page-hero) .hero-badge::before {
                 content: "";
-                width: 40px;
+                width: 28px;
                 height: 1px;
                 background: var(--accent);
                 display: inline-block;
-                margin-right: 0.25rem;
+                margin-right: 0.85rem;
+                vertical-align: middle;
             }
 
             .hero:not(.page-hero) .hero-title {
-                font-family: "Fraunces", Georgia, serif;
-                font-weight: 500;
-                font-size: clamp(2.2rem, 3.6vw, 3.4rem);
-                line-height: 1.1;
-                letter-spacing: -0.01em;
-                margin-bottom: 1.5rem;
+                font-family: var(--font);
+                font-weight: 700;
+                font-size: clamp(2.5rem, 5.2vw, 4.75rem);
+                line-height: 1.02;
+                letter-spacing: -0.035em;
+                margin-bottom: 1.75rem;
             }
 
             .hero:not(.page-hero) .hero-title em {
-                font-style: italic;
-                color: var(--accent);
-                font-weight: 500;
+                font-style: normal;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 0.75);
+                display: block;
+            }
+
+            .hero:not(.page-hero) .hero-title .accent-underline {
                 position: relative;
+                display: inline-block;
+                color: white;
+                background: linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    var(--accent) 100%
+                );
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
+            }
+
+            .hero:not(.page-hero) .hero-title em {
+                margin-top: 0.75rem;
+                font-size: 0.42em;
+                letter-spacing: 0.02em;
+                font-weight: 400;
+            }
+
+            .hero:not(.page-hero) .hero-subtitle {
+                font-size: 1.1rem;
+                line-height: 1.65;
+                font-weight: 400;
+                margin-bottom: 2.5rem;
             }
 
             .hero:not(.page-hero) .hero-stats {
                 gap: 0;
-                padding-top: 1.75rem;
-                margin-top: 0.5rem;
+                padding-top: 2rem;
+                margin-top: 1rem;
             }
 
             .hero:not(.page-hero) .stat {
                 flex: 1;
-                padding: 0 1.25rem;
+                padding: 0 1.5rem;
                 border-left: 1px solid rgba(255, 255, 255, 0.18);
             }
 
@@ -487,18 +512,59 @@
             }
 
             .hero:not(.page-hero) .stat-number {
-                font-family: "Fraunces", Georgia, serif;
-                font-weight: 500;
-                font-size: 2.4rem;
-                letter-spacing: -0.02em;
+                font-weight: 700;
+                font-size: 2.5rem;
+                letter-spacing: -0.035em;
+                line-height: 1;
+                background: linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    var(--accent) 100%
+                );
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
+            }
+
+            .hero:not(.page-hero) .btn {
+                padding: 1rem 1.75rem;
+                font-size: 0.95rem;
+                border-radius: 8px;
+            }
+
+            .hero:not(.page-hero) .btn-primary {
+                background: white;
+                color: var(--primary-dark);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            }
+
+            .hero:not(.page-hero) .btn-primary:hover {
+                background: var(--accent);
+                color: var(--primary-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 14px 50px rgba(212, 168, 75, 0.3);
+            }
+
+            .hero:not(.page-hero) .btn-outline {
+                background: transparent;
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.35);
+            }
+
+            .hero:not(.page-hero) .btn-outline:hover {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: white;
+                color: white;
             }
 
             .hero:not(.page-hero) .stat-label {
-                font-size: 0.7rem;
-                letter-spacing: 0.18em;
+                font-size: 0.68rem;
+                letter-spacing: 0.22em;
                 text-transform: uppercase;
-                margin-top: 0.5rem;
-                color: rgba(255, 255, 255, 0.65);
+                margin-top: 0.6rem;
+                color: rgba(255, 255, 255, 0.55);
+                font-weight: 500;
             }
 
             .hero-scroll {
