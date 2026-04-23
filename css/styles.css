@@ -2713,7 +2713,9 @@
                (paysagiste, bennes, contact pages)
                ============================================ */
             .hero.page-hero {
+                height: auto;
                 min-height: auto;
+                max-height: none;
                 display: block;
                 padding: 140px 0 60px;
                 background: var(--bg-alt);
@@ -2728,10 +2730,14 @@
             .hero.page-hero .hero-title {
                 font-size: 2.5rem;
                 max-width: 820px;
+                color: var(--primary-dark);
+                text-shadow: none;
             }
 
             .hero.page-hero .hero-subtitle {
                 max-width: 760px;
+                color: var(--text-light);
+                text-shadow: none;
             }
 
             .hero.page-hero .hero-cta {
