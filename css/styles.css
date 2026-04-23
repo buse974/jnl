@@ -304,7 +304,9 @@
                 background: var(--bg-dark);
                 position: relative;
                 overflow: hidden;
-                min-height: min(960px, 100vh);
+                height: 100vh;
+                min-height: 680px;
+                max-height: 980px;
                 display: flex;
                 align-items: center;
             }
@@ -362,7 +364,8 @@
                 grid-template-columns: 1.25fr 1fr;
                 gap: 4rem;
                 align-items: center;
-                padding: 7rem 0 8rem;
+                padding: 6rem 0 6rem;
+                width: 100%;
             }
 
             .hero-content {
@@ -434,7 +437,7 @@
                 font-weight: 500;
                 letter-spacing: 0.3em;
                 text-transform: uppercase;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
                 border-radius: 0;
                 position: relative;
             }
@@ -452,10 +455,10 @@
             .hero:not(.page-hero) .hero-title {
                 font-family: var(--font);
                 font-weight: 700;
-                font-size: clamp(2.5rem, 5.2vw, 4.75rem);
-                line-height: 1.02;
+                font-size: clamp(2.25rem, 4.4vw, 4.25rem);
+                line-height: 1.04;
                 letter-spacing: -0.035em;
-                margin-bottom: 1.75rem;
+                margin-bottom: 1.5rem;
             }
 
             .hero:not(.page-hero) .hero-title .accent-underline {
@@ -472,21 +475,21 @@
             }
 
             .hero-tagline {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 font-weight: 400;
                 color: var(--accent);
                 letter-spacing: 0.01em;
-                margin-top: 0.5rem;
-                margin-bottom: 2rem;
+                margin-top: 0;
+                margin-bottom: 1.5rem;
                 max-width: 520px;
                 font-style: italic;
             }
 
             .hero:not(.page-hero) .hero-subtitle {
-                font-size: 1.1rem;
-                line-height: 1.65;
+                font-size: 1.05rem;
+                line-height: 1.6;
                 font-weight: 400;
-                margin-bottom: 2.5rem;
+                margin-bottom: 2rem;
             }
 
             .hero:not(.page-hero) .hero-stats {
@@ -646,7 +649,7 @@
             .hero-buttons {
                 display: flex;
                 gap: 1rem;
-                margin-bottom: 3rem;
+                margin-bottom: 2.25rem;
             }
 
             .hero-stats {
